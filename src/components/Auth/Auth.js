@@ -6,8 +6,8 @@ import { updateUser } from '../../redux/userReducer'
 import './Auth.css'
 
 class Auth extends Component {
-  constructor (){
-    super();
+  constructor (props){
+    super(props);
     this.state = {
       username:'',
       password:'',
@@ -34,23 +34,24 @@ class Auth extends Component {
     await axios.post('/auth/register', {username:username,password:password,email:email})
 
     .then(res => {
-      this.props.updateUser({username:username,email:email})
-      this.props.hisotry.push('/allcharacters')
+      this.props.updateUser(res.data)
+      this.props.history.push('/allcharacters')
     })
-
+    
     .catch(err => {
       console.log(err)
-      this.setState({errorMsg:'Username taken!'})
+      this.setState({errorMsg:'Username or email taken!'})
     })
   }
-
+  
   login = async () => {
     const {username,password} = this.state;
-
+    
     await axios.post('/auth/login', {username:username,password:password})
 
     .then(res => {
-      this.props.updateUser({username:username})
+      this.props.updateUser(res.data)
+      this.props.history.push('/allcharacters')
     })
 
     .catch(err => {
@@ -69,6 +70,7 @@ class Auth extends Component {
   }
 
   render(){
+
     return (
       <div className='auth'>
         <section className='auth-container'>
@@ -76,10 +78,10 @@ class Auth extends Component {
             <input className='auth-input-box' value={this.state.username} placeholder='username' onChange={e => this.handleUsernameChange(e.target.value)} />
           </div>
           <div>
-            <input className='auth-input-box' value={this.state.email} placeholder='password' onChange={e => this.handleEmailChange} />
+            <input className='auth-input-box' value={this.state.email} placeholder='email' onChange={e => this.handleEmailChange(e.target.value)} />
           </div>
           <div>
-            <input className='auth-input-box' value={this.state.password} type='password' placeholder='password' onChange={e => this.handlePasswordChange} />
+            <input className='auth-input-box' value={this.state.password} type='password' placeholder='password' onChange={e => this.handlePasswordChange(e.target.value)} />
           </div>
           <section className='auth-button-container'>
             <button className='login-button' onClick={this.login}>Login</button>

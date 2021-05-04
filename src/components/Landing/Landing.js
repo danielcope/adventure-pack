@@ -1,23 +1,33 @@
-import React, {useState} from 'react'
+import React, {Component} from 'react'
 import Auth from '../Auth/Auth'
 
 import './Landing.css'
 
-const Landing = () => {
+class Landing extends Component {
+  constructor () {
+    super();
+    this.state = {
+      menu: false
+    }
+  }
 
-  const [menu,flipMenu] = useState(false)
+  flipMenu = () => this.setState({menu:!this.state.menu})
 
-  return (
-    <div>
+  render() {
 
-      <span className='landing-login' onClick={() => flipMenu(!menu)}>Login &equiv;</span>
 
-      <section className={ menu ? 'auth-opened' : 'auth-closed' }>
-        <Auth />
-      </section>
-    </div>
+    return (
+      <div>
 
-)
+        <span className='landing-login' onClick={this.flipMenu}>Login &equiv;</span>
+
+        <section className={ this.state.menu ? 'auth-opened' : 'auth-closed' }>
+          <Auth history={this.props.history}/>
+        </section>
+      </div>
+
+    )
+  }
 }
 
 export default Landing

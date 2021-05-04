@@ -26,7 +26,7 @@ export default function reducer (state = initialState,action) {
     case GET_CHARACTER:
       return {
         ...state,
-        char:action.payload
+        character:action.payload
       }
 
     case LOGOUT_USER:

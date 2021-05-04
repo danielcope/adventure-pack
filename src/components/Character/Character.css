@@ -1,0 +1,27 @@
+.char-container {
+  border: 1px solid grey;
+  margin: 5px;
+}
+
+.add-form-opened {
+  border: grey 1px solid;
+  margin: 5px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: opacity 0.4s, top 0.4s;
+}
+
+.add-form-closed {
+  position: fixed;
+  top:-500px;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transition: opacity 0s, top 1s;
+}
+
+.small-input {
+  width: 40px
+}
