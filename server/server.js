@@ -3,8 +3,16 @@ const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
 
+const authCtrl = require('./controllers/authCtrl')
+const charCtrl = require('./controllers/charCtrl')
+const backpackCtrl = require('./controllers/backpackCtrl')
+const journalCtrl = require('./controllers/journalCtrl')
+const npcCtrl = require('./controllers/npcCtrl')
+const spellsCtrl = require('./controllers/spellsCtrl')
+const nodemailer = require('./controllers/nodemailer');
+
+
 const app = express();
-// const nodemailer = require('nodemailer');
 
 
 const { SERVER_PORT,CONNECTION_STRING,SESSION_SECRET,EMAIL_PASSWORD } = process.env;
@@ -22,13 +30,14 @@ app.use(session({
 
 //-------------Endpoints------------------
 //Auth endpoints
-app.get( '/auth/who', authCtrl.getUser )
+app.get( '/auth/who', authCtrl.checkUser )
 app.post( '/auth/register', authCtrl.register )
 app.post( '/auth/login', authCtrl.login )
 app.delete( '/auth/logout', authCtrl.logout )
 
 //NodeMailer endpoint (email verification)
 app.post( '/auth/valid', nodemailer.emailVerify)
+app.post( '/auth/emailthanks', nodemailer.emailThanks)
 
 //Character endpoints
 app.get( '/api/character', charCtrl.getChar )
@@ -37,10 +46,10 @@ app.put( '/api/character', charCtrl.editChar )
 app.delete( '/api/character', charCtrl.deleteChar )
 
 //Backpack endpoints
-app.get( '/api/character', backpackCtrl.getItem )
-app.post( '/api/character', backpackCtrl.addItem )
-app.put( '/api/character', backpackCtrl.editItem )
-app.delete( '/api/character', backpackCtrl.deleteItem )
+app.get( '/api/backpack', backpackCtrl.getItem )
+app.post( '/api/backpack', backpackCtrl.addItem )
+app.put( '/api/backpack', backpackCtrl.editItem )
+app.delete( '/api/backpack', backpackCtrl.deleteItem )
 
 //Journal endpoints
 app.get( '/journal/entry', journalCtrl.getEntry )
@@ -55,10 +64,10 @@ app.put( '/journal/npc', npcCtrl.editNPC )
 app.delete( '/journal/npc', npcCtrl.deleteNPC )
 
 //Spell endpoints
-app.get( '/api/spell', spell.getSpell )
-app.add( '/api/spell', spell.addSpell )
-app.post( '/api/spell', spell.editSpell )
-app.delete( '/api/spell', spell.deleteSpell )
+app.get( '/api/spell', spellsCtrl.getSpell )
+app.post( '/api/spell', spellsCtrl.addSpell )
+app.put( '/api/spell', spellsCtrl.editSpell )
+app.delete( '/api/spell', spellsCtrl.deleteSpell )
 
 
 
