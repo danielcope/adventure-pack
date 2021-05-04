@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Auth from '../Auth/Auth'
+import { connect } from 'react-redux'
 
 import './Landing.css'
 
@@ -15,7 +16,6 @@ class Landing extends Component {
 
   render() {
 
-
     return (
       <div>
 
@@ -30,4 +30,6 @@ class Landing extends Component {
   }
 }
 
-export default Landing
+const mapStateToProps = state => state
+
+export default connect (mapStateToProps)(Landing)

@@ -63,8 +63,9 @@ module.exports = {
   
   addChar:  async (req,res) => {
     const db = req.app.get('db');
-    const { user_id } = req.session.user;
+    
     const {
+      user_id,
       name,
       race,
       char_class,
@@ -83,7 +84,7 @@ module.exports = {
     const current_hp = max_hp
     const current_hitdice = max_hitdice
 
-    await db.char.addChar(user_id,
+    await db.char.add_char(user_id,
       name,
       race,
       char_class,
