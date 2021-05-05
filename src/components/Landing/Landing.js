@@ -17,9 +17,11 @@ class Landing extends Component {
   render() {
 
     return (
-      <div>
+      <div className='landing-view'>
 
-        <span className='landing-login' onClick={this.flipMenu}>Login &equiv;</span>
+        <section className='landing-login'>
+          <span  onClick={this.flipMenu}>Login &equiv;</span>
+        </section>
 
         <section className={ this.state.menu ? 'auth-opened' : 'auth-closed' }>
           <Auth history={this.props.history}/>

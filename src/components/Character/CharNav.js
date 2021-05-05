@@ -29,10 +29,10 @@ class CharNav extends Component {
 
         <section className={ this.state.navMenu ? 'char-nav-opened' : 'char-nav-closed'}>
           <div>
-            <Link to='/allspells'>Spells</Link> 
+            <Link className='light-text' to='/allspells'>Spells</Link> 
           </div>
           <div>
-            <Link to='/' onClick={this.fullLogout}>Logout</Link>
+            <Link className='light-text' to='/' onClick={this.fullLogout}>Logout</Link>
           </div>
 
         </section>

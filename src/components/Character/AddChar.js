@@ -70,10 +70,12 @@ class AddChar extends Component {
 
     return (
       <div>
+        <div className='add-char-button'>
           { !this.state.menu ? 
-        <span className='add-char-button' onClick={this.flipAddMenu}>Add Char &#43;</span>
-        : <span className='add-char-button' onClick={this.flipAddMenu}>Close X</span>
-        }
+          <span className='add' onClick={this.flipAddMenu}>Add New Char &#43;</span>
+          : <span className='add' onClick={this.flipAddMenu}>Close X</span>
+          }
+        </div>
 
         <section className={ this.state.menu ? 'add-form-opened' : 'add-form-closed'}>
           <div>

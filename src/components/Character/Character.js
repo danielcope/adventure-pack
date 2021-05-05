@@ -39,7 +39,7 @@ class Character extends Component {
     const mappedCharArr = this.props.charReducer.character.map((ele,i) => (
       <section key={ele.char_id} className='char-container'>
         <section className='name-trash-container'>
-          <h2>{ele.name}</h2>
+          <h2 className='text'>{ele.name}</h2>
           <div className="icon-trash" onClick={() => this.deleteChar(ele.char_id)}>
             <div className="trash-lid"></div>
             <div className="trash-container"></div>

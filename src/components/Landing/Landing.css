@@ -1,0 +1,19 @@
+.landing-view {
+  height:100vh;
+  -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
+  box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
+  padding: 15px;
+  margin:8px;
+}
+
+.landing-login {
+  text-decoration: none;
+  color: #4E4E56;
+  font-size: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
