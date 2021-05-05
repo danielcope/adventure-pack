@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import AddChar from './AddChar'
 import CharNav from './CharNav'
 
+import '../trash.css'
 import './Character.css'
 
 class Character extends Component {
@@ -24,12 +25,28 @@ class Character extends Component {
       .catch(err => console.log(err))
   }
 
+  deleteChar = (char_id) => {
+    axios.delete(`/api/sacrifice/${char_id}`)
+    .then(res=> {
+      this.getCharacter()
+      console.log('hit')
+    })
+    .catch(err => console.log(err))
+  }
+
   render() {
 
     const mappedCharArr = this.props.charReducer.character.map((ele,i) => (
       <section key={ele.char_id} className='char-container'>
-        <section>
-          <span>{ele.name}</span>
+        <section className='name-trash-container'>
+          <h2>{ele.name}</h2>
+          <div className="icon-trash" onClick={() => this.deleteChar(ele.char_id)}>
+            <div className="trash-lid"></div>
+            <div className="trash-container"></div>
+            <div className="trash-line-1"></div>
+            <div className="trash-line-2"></div>
+            <div className="trash-line-3"></div>
+          </div>
         </section>
       </section>
     ))

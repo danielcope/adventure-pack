@@ -1,12 +1,13 @@
 .char-container {
   border: 1px solid grey;
-  margin: 5px;
+  margin: 15px;
+  height: 80vh;
 }
 
 .add-form-opened {
   border: grey 1px solid;
-  margin: 5px;
-  height: 40vh;
+  margin: 15px;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -48,3 +49,22 @@
   opacity: 0;
   transition: opacity 0s, top 1s;
 }
+
+.name-trash-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  text-transform: capitalize;
+  margin:25px;
+  width:80%;
+  height:100%;
+  border-bottom: grey 1px solid;
+}
+
+.add-char-button {
+  width:40vw;
+  height: 5vh;
+}
+

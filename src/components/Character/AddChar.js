@@ -62,6 +62,7 @@ class AddChar extends Component {
     .then(res=>
       alert('Character added!'))
       this.props.getCharacter()
+      this.flipAddMenu()
   }
 
   render(){
@@ -70,8 +71,8 @@ class AddChar extends Component {
     return (
       <div>
           { !this.state.menu ? 
-        <span onClick={this.flipAddMenu}>Add Char &#43;</span>
-        : <span onClick={this.flipAddMenu}>Close X</span>
+        <span className='add-char-button' onClick={this.flipAddMenu}>Add Char &#43;</span>
+        : <span className='add-char-button' onClick={this.flipAddMenu}>Close X</span>
         }
 
         <section className={ this.state.menu ? 'add-form-opened' : 'add-form-closed'}>

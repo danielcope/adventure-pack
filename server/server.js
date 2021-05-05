@@ -42,8 +42,8 @@ app.post( '/auth/emailthanks', nodemailer.emailThanks)
 //Character endpoints
 app.get( '/api/character', charCtrl.getChar )
 app.post( '/api/character', charCtrl.addChar )
-app.put( '/api/character', charCtrl.editChar )
-app.delete( '/api/character', charCtrl.deleteChar )
+app.put( '/api/character/:id', charCtrl.editChar )
+app.delete( '/api/sacrifice/:char_id', charCtrl.deleteChar )
 
 //Backpack endpoints
 app.get( '/api/backpack', backpackCtrl.getItem )
