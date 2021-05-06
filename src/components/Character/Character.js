@@ -39,7 +39,7 @@ class Character extends Component {
     const mappedCharArr = this.props.charReducer.character.map((ele,i) => (
       <section key={ele.char_id} className='char-container'>
         <section className='name-trash-container'>
-          <h2 className='text'>{ele.name}</h2>
+          <h2 className='name-text'>{ele.name}</h2>
           <div className="icon-trash" onClick={() => this.deleteChar(ele.char_id)}>
             <div className="trash-lid"></div>
             <div className="trash-container"></div>
@@ -48,6 +48,67 @@ class Character extends Component {
             <div className="trash-line-3"></div>
           </div>
         </section>
+
+        <section className='char-info' >
+          <section className='char-info-container' >
+            <div className='char-info-block'>
+              <h4>Race:</h4> 
+              <span className='info-text'>{ele.race}</span>
+            </div>
+
+            <div className='char-info-block'>
+              <h4>Class:</h4>
+              <span className='info-text'>{ele.char_class}</span>
+            </div>
+            
+            <div className='char-info-block'>
+              <h4>Background:</h4> 
+              <span className='info-text'>{ele.background}</span>
+            </div>
+
+          </section>
+          
+          <section className='hp-ac-speed'>
+            
+
+            <section className='char-info-stats'>
+              <h4><div className='shield'></div> AC: </h4> 
+              <span className='info-text'>{ele.armor_class}</span>
+            </section>
+
+            <section className='char-info-stats'>
+              <h4>Speed</h4>
+              <span className='info-text'>{ele.speed}</span>
+
+            </section>
+
+          </section>
+
+        </section>
+
+        <section className='health-container'>
+          <section className='char-info-container'>
+            <section className='char-info-block'>
+              <h4>&#x2764; Health: </h4> 
+              <span className='info-text'>{ele.current_hp}/{ele.max_hp}</span>
+            </section>
+          </section>
+
+            <section className='health-change'>
+              <div>
+                <input className='number' placeholder={0}/>              
+              </div>
+
+              <div>
+                <button className='health-button' >+</button>
+                <button className='health-button' >Full Heal</button>
+                <button className='health-button' >-</button>
+              </div>
+            </section>
+
+        </section>
+
+
       </section>
     ))
 
