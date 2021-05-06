@@ -12,6 +12,7 @@ class Character extends Component {
   constructor() {
     super();
     this.state = {
+      healthAddSub: 0
     }
   }
 
@@ -32,6 +33,25 @@ class Character extends Component {
       console.log('hit')
     })
     .catch(err => console.log(err))
+  }
+
+  handleHealthAddSubChange = (val) => {
+    this.setState({healthAddSub:val})
+  }
+
+  addHealth = async (char_id,current_hp) => {
+
+    const { healthAddSub } = this.state
+    const new_hp = parseInt(current_hp) + parseInt(healthAddSub);
+    console.log(char_id);
+
+
+    await axios.put(`/api/addhealth/${char_id}`,{new_hp:new_hp})
+    .then(res=>{
+      this.getCharacter()
+      console.log('hit')
+    })
+    .catch(err=>console.log(err))
   }
 
   render() {
@@ -95,15 +115,19 @@ class Character extends Component {
           </section>
 
             <section className='health-change'>
-              <div>
-                <input className='number' placeholder={0}/>              
-              </div>
 
               <div>
-                <button className='health-button' >+</button>
-                <button className='health-button' >Full Heal</button>
-                <button className='health-button' >-</button>
+                <input onChange={e=>this.handleHealthAddSubChange(e.target.value)} className='number' placeholder={0}/>              
               </div>
+
+              <div className='health-button-container'>
+                
+                <button onClick={() => this.addHealth(ele.char_id,ele.current_hp)} className='health-button'>Add</button>
+                <button className='health-button'>Subtract</button>
+                <button className='health-button'>Full Heal</button>
+              
+              </div>
+
             </section>
 
         </section>

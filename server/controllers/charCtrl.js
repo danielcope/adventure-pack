@@ -112,5 +112,17 @@ module.exports = {
     await db.char.delete_char(char_id);
 
     res.sendStatus(200);
+  },
+
+  addHealth: async (req,res) => {
+    const db = req.app.get('db');
+    const {char_id} = req.params;
+    const {new_hp} = req.body;
+    console.log(new_hp);
+    console.log(char_id);
+
+    await db.char.edit_char_current_hp(new_hp,char_id)
+
+    res.sendStatus(200)
   }
 }

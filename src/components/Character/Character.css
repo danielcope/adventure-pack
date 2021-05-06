@@ -169,15 +169,29 @@ h4 {
   width: 40%;
   padding:5px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
 }
 
 .number {
-  width: 25px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   text-align: center;
   font-size: 20px;
+}
+
+.health-button {
+  background-color: white;
+  border: 1px grey solid;
+  height: 40px;
+  width: 100%;
+}
+
+.health-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
