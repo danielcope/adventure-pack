@@ -4,6 +4,7 @@ import { getCharacterArr } from '../../redux/charReducer'
 import { connect } from 'react-redux'
 import AddChar from './AddChar'
 import CharNav from './CharNav'
+import { Link } from 'react-router-dom'
 
 import '../trash.css'
 import './Character.css'
@@ -43,15 +44,22 @@ class Character extends Component {
 
     const { healthAddSub } = this.state
     const new_hp = parseInt(current_hp) + parseInt(healthAddSub);
-    console.log(char_id);
-
-
     await axios.put(`/api/addhealth/${char_id}`,{new_hp:new_hp})
     .then(res=>{
       this.getCharacter()
-      console.log('hit')
     })
     .catch(err=>console.log(err))
+  }
+
+  subHealth = async (char_id,current_hp) => {
+    const {healthAddSub} = this.state;
+    const new_hp = parseInt(current_hp) - parseInt(healthAddSub);
+
+    await axios.put(`/api/subhealth/${char_id}`, {new_hp:new_hp})
+    .then(res=>{
+      this.getCharacter()
+    .catch(err => console.log(err))      
+    })
   }
 
   render() {
@@ -69,69 +77,7 @@ class Character extends Component {
           </div>
         </section>
 
-        <section className='char-info' >
-          <section className='char-info-container' >
-            <div className='char-info-block'>
-              <h4>Race:</h4> 
-              <span className='info-text'>{ele.race}</span>
-            </div>
-
-            <div className='char-info-block'>
-              <h4>Class:</h4>
-              <span className='info-text'>{ele.char_class}</span>
-            </div>
-            
-            <div className='char-info-block'>
-              <h4>Background:</h4> 
-              <span className='info-text'>{ele.background}</span>
-            </div>
-
-          </section>
-          
-          <section className='hp-ac-speed'>
-            
-
-            <section className='char-info-stats'>
-              <h4><div className='shield'></div> AC: </h4> 
-              <span className='info-text'>{ele.armor_class}</span>
-            </section>
-
-            <section className='char-info-stats'>
-              <h4>Speed</h4>
-              <span className='info-text'>{ele.speed}</span>
-
-            </section>
-
-          </section>
-
-        </section>
-
-        <section className='health-container'>
-          <section className='char-info-container'>
-            <section className='char-info-block'>
-              <h4>&#x2764; Health: </h4> 
-              <span className='info-text'>{ele.current_hp}/{ele.max_hp}</span>
-            </section>
-          </section>
-
-            <section className='health-change'>
-
-              <div>
-                <input onChange={e=>this.handleHealthAddSubChange(e.target.value)} className='number' placeholder={0}/>              
-              </div>
-
-              <div className='health-button-container'>
-                
-                <button onClick={() => this.addHealth(ele.char_id,ele.current_hp)} className='health-button'>Add</button>
-                <button className='health-button'>Subtract</button>
-                <button className='health-button'>Full Heal</button>
-              
-              </div>
-
-            </section>
-
-        </section>
-
+        <Link to={`/individualcharacter/${ele.char_id}`}>Stats</Link>
 
       </section>
     ))

@@ -13,7 +13,7 @@ export default (
   <Switch>
     <Route exact path='/' component={Landing}/>
     <Route path='/allcharacters' component={Character} />
-    <Route path='/IndividualCharacter/:id' component={IndividualCharacter} />
+    <Route path='/individualcharacter/:id' component={IndividualCharacter} />
 
     <Route path='/allspells' component={AllSpells}/>
     <Route path='/individualspell/:id' component={IndividualSpell} />

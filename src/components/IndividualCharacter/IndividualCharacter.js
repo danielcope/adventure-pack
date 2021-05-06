@@ -1,11 +1,28 @@
-import React from 'react'
+import React, {Component} from 'react'
+import { connect } from 'react-redux'
 
-const IndividualCharacter = () => {
+import './IndividualCharacter.js'
 
-  return (
-    <div></div>
 
-)
+class IndividualCharacter extends Component {
+  constructor () {
+    super() 
+    this.state = {
+
+    }
+  }
+
+  render () {
+
+    return (
+      <div>
+        
+      </div>
+      
+    )
+  }
 }
 
-export default IndividualCharacter
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps) (IndividualCharacter)
