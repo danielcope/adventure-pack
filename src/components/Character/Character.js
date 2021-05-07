@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import AddChar from './AddChar'
 import CharNav from './CharNav'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBook,faScroll } from '@fortawesome/free-solid-svg-icons'
 
 import '../trash.css'
 import './Character.css'
@@ -77,7 +79,20 @@ class Character extends Component {
           </div>
         </section>
 
-        <Link to={`/individualcharacter/${ele.char_id}`}>Stats</Link>
+        <section className='char-options'>
+          <Link className='option' to={`/individualcharacter/${ele.char_id}`}>Stats
+           <FontAwesomeIcon icon={faScroll} className='scroll'/>
+           
+          </Link>
+          <Link className='option' to={`/individualspell/${ele.char_id}`}>Backpack
+            <img className='backpack' alt='backpack' src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ChYOrd3pfTtG7_pUSzzC7y9sFu8Pb6KRog&usqp=CAU"} />
+          </Link>
+          <Link className='option' to={`/backpack/${ele.char_id}`}>Spells
+          
+          <FontAwesomeIcon icon={faBook} className='spellbook' />
+
+          </Link>
+        </section>
 
       </section>
     ))

@@ -195,3 +195,37 @@ h4 {
   align-items: center;
 }
 
+.char-options {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;  
+}
+
+.option {
+  width: 30%;
+  text-align: center;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  color:#4E4E56;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.option:hover {
+  cursor: pointer;
+}
+
+.backpack {
+  height: 70%;
+  max-height: 70%;
+  max-width: 75%;
+}
+
+.spellbook, .scroll {
+  color: black;
+  font-size: 60px;
+}
