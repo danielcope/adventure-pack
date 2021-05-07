@@ -41,6 +41,7 @@ app.post( '/auth/emailthanks', nodemailer.emailThanks)
 
 //Character endpoints
 app.get( '/api/character', charCtrl.getChar )
+// app.get('/api/singlechar/:char_id', charCtrl.singleChar)
 app.post( '/api/character', charCtrl.addChar )
 app.put( '/api/character/:id', charCtrl.editChar )
 
