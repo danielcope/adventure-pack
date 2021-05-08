@@ -96,7 +96,7 @@ class IndividualCharacter extends Component {
         <IndividualCharNav id={this.props.match.params.id} />
         <div className='char-stats-container'>
           <div className='name-bar'>
-            <span className='name'>{this.state.charInfo.name}
+            <span className='name'>{name}
               <div className='edit-pencil'>&#x270E;</div>
             </span>
           </div>
@@ -148,34 +148,50 @@ class IndividualCharacter extends Component {
             </section>
 
               <section className='health-container'>
-                  <section className='char-info-block'>
-                    <h4>&#x2764; Health: </h4> 
+                <section className='char-info-block'>
+                  <h4>&#x2764; Health: </h4> 
+                  <div className='current-max'>
                     <span className='info-text'> {current_hp} / {max_hp} </span>
-                  </section>
-
-              <section className='health-change'>
-
-                <div>
-                  <input onChange={e=>this.handleHealthAddSubChange(e.target.value)} className='number' placeholder={0}/>              
-                </div>
-
-                <div className='health-button-container'>
-                  
-                  <button onClick={() => this.addHealth(char_id,current_hp)} className='health-button'>Add</button>
-                  <button onClick={() => this.subHealth(char_id,current_hp)} className='health-button'>Subtract</button>
-                  <button onClick={() => this.fullHeal()} className='health-button'>Full Heal</button>
-
-                </div>
+                    <div className='edit-pencil'>&#x270E;</div>
+                  </div>
 
                 </section>
 
+                <section className='health-change'>
 
+                  <div>
+                    <input onChange={e=>this.handleHealthAddSubChange(e.target.value)} className='number' placeholder={0}/>              
+                  </div>
 
+                  <div className='health-button-container'>
+                    
+                    <button onClick={() => this.addHealth(char_id,current_hp)} className='health-button'>Add</button>
+                    <button onClick={() => this.subHealth(char_id,current_hp)} className='health-button'>Subtract</button>
+                    <button onClick={() => this.fullHeal()} className='health-button'>Full Heal</button>
+                  </div>
+                </section>
               </section>
+          </section>
 
-
+          <section className='extra-stats'>
+            
+              <section className='char-info-stats'>
+                <h4> Proficiency: </h4> 
+                <span className='info-text'>{proficiency}
+                  <div className='edit-pencil'>&#x270E;</div>
+                </span>
+              </section>
+              
+              <section className='char-info-stats'>
+                <h4> Proficiency: </h4> 
+                <span className='info-text'>{proficiency}
+                  <div className='edit-pencil'>&#x270E;</div>
+                </span>
+              </section>
+              
 
           </section>
+
 
         </div>
 
