@@ -38,31 +38,7 @@ class Character extends Component {
     .catch(err => console.log(err))
   }
 
-  handleHealthAddSubChange = (val) => {
-    this.setState({healthAddSub:val})
-  }
-
-  addHealth = async (char_id,current_hp) => {
-
-    const { healthAddSub } = this.state
-    const new_hp = parseInt(current_hp) + parseInt(healthAddSub);
-    await axios.put(`/api/addhealth/${char_id}`,{new_hp:new_hp})
-    .then(res=>{
-      this.getCharacter()
-    })
-    .catch(err=>console.log(err))
-  }
-
-  subHealth = async (char_id,current_hp) => {
-    const {healthAddSub} = this.state;
-    const new_hp = parseInt(current_hp) - parseInt(healthAddSub);
-
-    await axios.put(`/api/subhealth/${char_id}`, {new_hp:new_hp})
-    .then(res=>{
-      this.getCharacter()
-    .catch(err => console.log(err))      
-    })
-  }
+ 
 
   render() {
 

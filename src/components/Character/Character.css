@@ -128,7 +128,13 @@ nav{
 }  
 
 .char-info-container {
-  width: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  border-top: solid #DA635D 1px;
+  border-bottom: solid #DA635D 1px;
 }
 
 .char-info-block {
@@ -140,7 +146,7 @@ nav{
 }
 
 .hp-ac-speed {
-  width: 40%;
+  width: 25%;
 }
 
 .shield {
@@ -155,6 +161,7 @@ nav{
 .info-text {
   font-size: 18px;
   text-transform: capitalize;
+  display: flex;
 }
 
 .name-text {
@@ -164,14 +171,16 @@ nav{
 
 .health-container {
   display: flex;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid grey;
+  margin-left: 20px;
+  /* padding: 10px; */
+  width: 90%;
+  flex-direction: column;
+
 }
 
 .health-change {
-  width: 40%;
-  padding:5px;
+  width: 100%;
+  padding-top:15px;
   display: flex;
   /* flex-direction: column; */
   justify-content: space-evenly;
@@ -189,14 +198,16 @@ nav{
   background-color: white;
   border: 1px grey solid;
   height: 40px;
-  width: 100%;
+  width: 30%;
+  margin-left: 5px;
 }
 
 .health-button-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .char-options {

@@ -131,6 +131,17 @@ module.exports = {
 
     await db.char.edit_char_current_hp(new_hp,char_id);
 
-    res.sendStatus(200)
+    res.sendStatus(200);
+  }, 
+
+  fullHeal: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { max_hp } = req.body;
+
+    await db.char.edit_char_current_hp(max_hp,char_id)
+
+    res.sendStatus(200);
+
   }
 }
