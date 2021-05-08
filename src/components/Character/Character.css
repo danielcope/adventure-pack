@@ -108,13 +108,13 @@ nav{
   display: flex;
   justify-content: center;
   margin: 20px;
-}  
+}
 
 .add-char-button:hover {
   background-color: #DA635D;
   cursor: pointer;
   border: 3px #4E4E56 solid;
-}  
+}
 
 .add {
   width:100%;

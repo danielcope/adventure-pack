@@ -27,12 +27,16 @@ class IndividualCharacter extends Component {
   
   render () {
 
-    console.log(this.state.charInfo)    
-
     return (
       <div>
         <IndividualCharNav id={this.props.match.params.id} />
-        <h1>{this.state.charInfo.name}</h1>
+    
+        <div className='name-bar'>
+          <h1 className='name'>{this.state.charInfo.name} </h1>
+          <div className='edit-pencil'>&#x270E;</div>
+        </div>
+
+
 
       </div>
       
