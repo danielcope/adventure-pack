@@ -204,6 +204,20 @@ class IndividualCharacter extends Component {
     })
     .catch(err=>console.log(err))
   }
+
+  editAC = async () => {
+    const { char_id } = this.state.charInfo
+    const { newAC } = this.state
+
+    await axios.put(`/api/changeac/${char_id}`, {newAC:newAC})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.armor_class = newAC
+      this.setState({ charInfo:arr })
+      this.flipAc()
+    })
+  
+  }
   
   render () {
 
@@ -300,7 +314,7 @@ class IndividualCharacter extends Component {
                   <div className='combat-edit'>
                     <input className='stat-input-field' placeholder={armor_class} onChange={e => this.handleACChange(e.target.value)} />
                     <div className='button-box'>
-                      <button className='edit-button-save' >Save</button>
+                      <button className='edit-button-save' onClick={()=>this.editAC()}>Save</button>
                       <button className='edit-button-cancel' onClick={()=>this.flipAc()}>Cancel</button>
                     </div>
                   </div>

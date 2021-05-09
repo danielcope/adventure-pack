@@ -143,11 +143,16 @@ module.exports = {
     await db.char.edit_char_background(newBackground,char_id)
     
     res.sendStatus(200)
-    
   },
-
+  
   editAC: async (req,res) => {
-
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newAC } = req.body;
+  
+    await db.char.edit_char_armor_class(newAC,char_id)
+    
+    res.sendStatus(200)
   },
 
   editSpeed: async (req,res) => {

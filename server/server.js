@@ -52,6 +52,7 @@ app.put('/api/changename/:char_id', charCtrl.editName)
 app.put('/api/changerace/:char_id', charCtrl.editRace)
 app.put('/api/changeclass/:char_id', charCtrl.editClass)
 app.put('/api/changebackground/:char_id', charCtrl.editBackground)
+app.put('/api/changeac/:char_id', charCtrl.editAC)
 
 app.delete( '/api/sacrifice/:char_id', charCtrl.deleteChar )
 
