@@ -87,5 +87,54 @@ h1 {
 .edit-input {
   display: flex;
   align-items: center;
+  border-left: grey solid 1px;
+  border-bottom: grey solid 1px;
+  width: 100%;
+  padding:10px;
+}
+
+.input-field {
+  font-size: 36px;
+  width: 100%;
+  border: none;
+  border-bottom: grey solid 1px;
+}
+
+.stat-edit-input {
+display: flex;
+}
+
+.stat-input-field {
+  width: 100%;
+  font-size: 32px;
+  border: none;
+  border-bottom: grey solid 1px;
+}
+
+.stat-input-field-hp {
+  width: 20%;
+  font-size: 32px;
+  border: none;
+  border-bottom: grey solid 1px;
+}
+
+.combat-edit {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-box {
+display: flex;
+}
+
+.edit-button-save {
+  background: transparent;
+  border: none;
+  border-right: grey solid 1px;
+}
+
+.edit-button-cancel {
+  background: transparent;
+  border: none;
 }
 

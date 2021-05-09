@@ -181,37 +181,55 @@ class IndividualCharacter extends Component {
           <div className='name-bar'>
             { this.state.nameEdit ? 
               <div className='edit-input'>
-                <input placeholder={name} onChange={e => this.handleNameChange(e.target.value)} />
-                <button>Save</button>
-                <button onClick={()=>this.flipName()}>Cancel</button>
+                <input className='input-field' placeholder={name} onChange={e => this.handleNameChange(e.target.value)} />
+                <button className='edit-button-save'>Save</button>
+                <button className='edit-button-cancel' onClick={()=>this.flipName()}>Cancel</button>
               </div>
             : 
-             <span className='name'>{name}
-              <div className='edit-pencil' onClick={()=>this.flipName()}>&#x270E;</div>
-            </span>
+             <span className='name' onClick={()=>this.flipName()}>{name}</span>
             }
           </div>
 
         <section className='char-info-container' >
+
             <div className='char-info-block'>
               <h4>Race:</h4> 
-              <span className='info-text'>{race}
-                <div className='edit-pencil'>&#x270E;</div>
-              </span>
+              { this.state.raceEdit ? 
+              <div className='stat-edit-input'>
+                <input className='stat-input-field' placeholder={race} onChange={e => this.handleRaceChange(e.target.value)} />
+                <button className='edit-button-save' >Save</button>
+                <button className='edit-button-cancel' onClick={()=>this.flipRace()}>Cancel</button>
+              </div>
+              :
+              <span className='info-text' onClick={()=>this.flipRace()}>{race}</span>
+              }
             </div>
 
             <div className='char-info-block'>
               <h4>Class:</h4>
-              <span className='info-text'>{char_class}
-                <div className='edit-pencil'>&#x270E;</div>
-              </span>
+              
+              { this.state.classEdit ? 
+                <div className='stat-edit-input'>
+                  <input className='stat-input-field' placeholder={char_class} onChange={e => this.handleClassChange(e.target.value)} />
+                  <button className='edit-button-save' >Save</button>
+                  <button className='edit-button-cancel' onClick={()=>this.flipClass()}>Cancel</button>
+                </div>
+                :
+                <span className='info-text' onClick={()=>this.flipClass()}>{char_class}</span>
+              }
             </div>
             
             <div className='char-info-block'>
               <h4>Background:</h4> 
-              <span className='info-text'>{background}
-                <div className='edit-pencil'>&#x270E;</div>
-              </span>
+              { this.state.backgroundEdit ? 
+                <div className='stat-edit-input'>
+                  <input className='stat-input-field' placeholder={background} onChange={e => this.handleBackgroundChange(e.target.value)} />
+                  <button className='edit-button-save' >Save</button>
+                  <button className='edit-button-cancel' onClick={()=>this.flipBackground()}>Cancel</button>
+                </div>
+                :
+              <span className='info-text' onClick={()=>this.flipBackground()}>{background}</span>
+              }
             </div>
 
           </section>
@@ -222,24 +240,52 @@ class IndividualCharacter extends Component {
               
 
               <section className='char-info-stats'>
-                <h4><div className='shield'></div> AC: </h4> 
-                <span className='info-text'>{armor_class}
-                  <div className='edit-pencil'>&#x270E;</div>
-                </span>
+                <h4><div className='shield'></div> AC: </h4>
+
+                { this.state.acEdit ? 
+                  <div className='combat-edit'>
+                    <input className='stat-input-field' placeholder={armor_class} onChange={e => this.handleACChange(e.target.value)} />
+                    <div className='button-box'>
+                      <button className='edit-button-save' >Save</button>
+                      <button className='edit-button-cancel' onClick={()=>this.flipAc()}>Cancel</button>
+                    </div>
+                  </div>
+                  :
+                  <span className='info-text' onClick={()=>this.flipAc()}>{armor_class}</span>
+                }
               </section>
 
               <section className='char-info-stats'>
                 <h4>Speed</h4>
-                <span className='info-text'> {speed} 
-                  <div className='edit-pencil'>&#x270E;</div>
-                </span>
-              </section>
+
+                { this.state.speedEdit ? 
+                  <div className='combat-edit'>
+                    <input className='stat-input-field' placeholder={speed} onChange={e => this.handleSpeedChange(e.target.value)} />
+                    <div className='button-box'>
+                      <button className='edit-button-save' >Save</button>
+                      <button className='edit-button-cancel' onClick={()=>this.flipSpeed()}>Cancel</button>
+                    </div>
+                  </div>
+                  :
+                  <span className='info-text' onClick={()=>this.flipSpeed()}> {speed} </span>
+                }
+
+                </section>
 
               <section className='char-info-stats'>
                 <h4>Initiative</h4>
-                <span className='info-text'> {initiative} 
-                  <div className='edit-pencil'>&#x270E;</div>
-                </span>
+                
+                { this.state.initiativeEdit ? 
+                  <div className='combat-edit'>
+                    <input className='stat-input-field' placeholder={initiative} onChange={e => this.handleInitiativeChange(e.target.value)} />
+                    <div className='button-box'>
+                      <button className='edit-button-save' >Save</button>
+                      <button className='edit-button-cancel' onClick={()=>this.flipInitiative()}>Cancel</button>
+                    </div>
+                  </div>
+                  :
+                  <span className='info-text' onClick={()=>this.flipInitiative()}> {initiative}</span>
+                }
               </section>
 
 
@@ -250,8 +296,16 @@ class IndividualCharacter extends Component {
                 <section>
                   <h4>&#x2764; Health: </h4> 
                   <div className='current-max'>
-                    <span className='info-text'> {current_hp} / {max_hp} </span>
-                    <div className='edit-pencil'>&#x270E;</div>
+                    <span className='info-text'> {current_hp}/</span>
+                  { this.state.maxHealthEdit ? 
+                    <div className='stat-edit-input'>
+                      <input className='stat-input-field-hp' placeholder={initiative} onChange={e => this.handleMaxHealthChange(e.target.value)} />
+                        <button className='edit-button-save' >Save</button>
+                        <button className='edit-button-cancel' onClick={()=>this.flipMaxHP()}>Cancel</button>
+                      </div>
+                    :
+                    <span className='info-text' onClick={()=>this.flipMaxHP()}>{max_hp}</span>
+                  }
                   </div>
 
                 </section>
@@ -276,30 +330,59 @@ class IndividualCharacter extends Component {
             
               <section className='extra-info'>
                 <h4> Proficiency: </h4> 
-                <span className='info-text'>{proficiency}
-                  <div className='edit-pencil'>&#x270E;</div>
-                </span>
+
+                { this.state.proficiencyEdit ? 
+                  <div className='stat-edit-input'>
+                    <input className='stat-input-field' placeholder={proficiency} onChange={e => this.handleProficiencyChange(e.target.value)} />
+                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-cancel' onClick={()=>this.flipProficiency()}>Cancel</button>
+                  </div>
+                  :
+
+                  <span className='info-text' onClick={()=>this.flipProficiency()}>{proficiency}</span>
+                }
               </section>
               
               <section className='extra-info'>
                 <h4>Inspiration: </h4> 
-                <span className='info-text'>{inspiration}
-                  <div className='edit-pencil'>&#x270E;</div>
+                { this.state.inspirationEdit ? 
+                  <div className='stat-edit-input'>
+                    <input className='stat-input-field' placeholder={inspiration} onChange={e => this.handleInspirationChange(e.target.value)} />
+                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-cancel' onClick={()=>this.flipInspiration()}>Cancel</button>
+                  </div>
+                  :
+                <span className='info-text' onClick={()=>this.flipInspiration()}>{inspiration}
                 </span>
+                }
               </section>
 
               <section className='extra-info'>
                 <h4>Passive Perception: </h4> 
-                <span className='info-text'>{passive_perception}
-                  <div className='edit-pencil'>&#x270E;</div>
-                </span>
+
+                { this.state.ppEdit ? 
+                  <div className='stat-edit-input'>
+                    <input className='stat-input-field' placeholder={passive_perception} onChange={e => this.handlePPChange(e.target.value)} />
+                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-cancel' onClick={()=>this.flipPp()}>Cancel</button>
+                  </div>
+                  :
+                  <span className='info-text' onClick={()=>this.flipPp()}>{passive_perception}
+                  </span>
+                }
               </section>
 
               <section className='extra-info'>
                 <h4>Passive Insight: </h4> 
-                <span className='info-text'>{passive_insight}
-                  <div className='edit-pencil'>&#x270E;</div>
-                </span>
+                { this.state.piEdit ? 
+                  <div className='stat-edit-input'>
+                    <input className='stat-input-field' placeholder={passive_insight} onChange={e => this.handlePIChange(e.target.value)} />
+                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-cancel' onClick={()=>this.flipPi()}>Cancel</button>
+                  </div>
+                  :
+                <span className='info-text' onClick={()=>this.flipPi()}>{passive_insight}
+                </span>}
               </section>
               
               <section className='extra-info'>
@@ -312,16 +395,18 @@ class IndividualCharacter extends Component {
 
               <section className='extra-info'>
                 <h4>Max Hit Dice: </h4> 
-                <span className='info-text'>{max_hitdice}
-                  <div className='edit-pencil'>&#x270E;</div>
-                </span>
+                { this.state.maxHitDiceEdit ? 
+                  <div className='stat-edit-input'>
+                    <input className='stat-input-field' placeholder={max_hitdice} onChange={e => this.handleMaxHDChange(e.target.value)} />
+                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-cancel' onClick={()=>this.flipMaxHD()}>Cancel</button>
+                  </div>
+                  :
+                <span className='info-text' onClick={()=>this.flipMaxHD()}>{max_hitdice}
+                </span>}
               </section>
           </section>
-
-
         </div>
-
-
       </div>
       
     )
