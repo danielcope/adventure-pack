@@ -1,3 +1,3 @@
 UPDATE character
 SET name = $1
-WHERE id = $2
+WHERE char_id = $2

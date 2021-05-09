@@ -42,14 +42,16 @@ app.post( '/auth/emailthanks', nodemailer.emailThanks)
 //Character endpoints
 app.get( '/api/character', charCtrl.getChar )
 app.post( '/api/character', charCtrl.addChar )
-app.put( '/api/character/:id', charCtrl.editChar )
 
 
 app.put('/api/addhealth/:char_id', charCtrl.addHealth)
 app.put('/api/subhealth/:char_id', charCtrl.addHealth)
 app.put('/api/fullheal/:char_id', charCtrl.fullHeal)
-
 app.put('/api/changedice/:char_id', charCtrl.changeDice )
+app.put('/api/changename/:char_id', charCtrl.editName)
+app.put('/api/changerace/:char_id', charCtrl.editRace)
+app.put('/api/changeclass/:char_id', charCtrl.editClass)
+app.put('/api/changebackground/:char_id', charCtrl.editBackground)
 
 app.delete( '/api/sacrifice/:char_id', charCtrl.deleteChar )
 

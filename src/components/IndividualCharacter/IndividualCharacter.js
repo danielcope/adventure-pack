@@ -149,7 +149,61 @@ class IndividualCharacter extends Component {
   handlePIChange = (val) => this.setState({newPI:val})
   handleMaxHDChange = (val) => this.setState({newMaxHD:val})
 
+  editName = async () => {
+    const { char_id } = this.state.charInfo
+    const { newName } = this.state
 
+    await axios.put(`/api/changename/${char_id}`, {newName:newName})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.name = newName
+      this.setState({charInfo:arr})
+      this.flipName()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editRace = async () => {
+    const { char_id } = this.state.charInfo
+    const { newRace } = this.state
+
+    await axios.put(`/api/changerace/${char_id}`, {newRace:newRace})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.race = newRace
+      this.setState({ charInfo:arr })
+      this.flipRace()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editClass = async () => {
+    const { char_id } = this.state.charInfo
+    const { newClass } = this.state
+
+    await axios.put(`/api/changeclass/${char_id}`, {newClass:newClass})
+    .then( async (res) => {
+      const arr = this.state.charInfo
+      arr.char_class = newClass
+      await this.setState({ charInfo:arr })
+      this.flipClass()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editBackground = async () => {
+    const { char_id }= this.state.charInfo
+    const { newBackground } = this.state
+
+    await axios.put(`/api/changebackground/${char_id}`, {newBackground:newBackground})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.background = newBackground
+      this.setState({ charInfo:arr })
+      this.flipBackground()
+    })
+    .catch(err=>console.log(err))
+  }
   
   render () {
 
@@ -182,7 +236,7 @@ class IndividualCharacter extends Component {
             { this.state.nameEdit ? 
               <div className='edit-input'>
                 <input className='input-field' placeholder={name} onChange={e => this.handleNameChange(e.target.value)} />
-                <button className='edit-button-save'>Save</button>
+                <button className='edit-button-save' onClick={()=>this.editName()}>Save</button>
                 <button className='edit-button-cancel' onClick={()=>this.flipName()}>Cancel</button>
               </div>
             : 
@@ -197,7 +251,7 @@ class IndividualCharacter extends Component {
               { this.state.raceEdit ? 
               <div className='stat-edit-input'>
                 <input className='stat-input-field' placeholder={race} onChange={e => this.handleRaceChange(e.target.value)} />
-                <button className='edit-button-save' >Save</button>
+                <button className='edit-button-save' onClick={()=>this.editRace()} >Save</button>
                 <button className='edit-button-cancel' onClick={()=>this.flipRace()}>Cancel</button>
               </div>
               :
@@ -211,7 +265,7 @@ class IndividualCharacter extends Component {
               { this.state.classEdit ? 
                 <div className='stat-edit-input'>
                   <input className='stat-input-field' placeholder={char_class} onChange={e => this.handleClassChange(e.target.value)} />
-                  <button className='edit-button-save' >Save</button>
+                  <button className='edit-button-save' onClick={()=>this.editClass()} >Save</button>
                   <button className='edit-button-cancel' onClick={()=>this.flipClass()}>Cancel</button>
                 </div>
                 :
@@ -224,7 +278,7 @@ class IndividualCharacter extends Component {
               { this.state.backgroundEdit ? 
                 <div className='stat-edit-input'>
                   <input className='stat-input-field' placeholder={background} onChange={e => this.handleBackgroundChange(e.target.value)} />
-                  <button className='edit-button-save' >Save</button>
+                  <button className='edit-button-save' onClick={()=>this.editBackground()}>Save</button>
                   <button className='edit-button-cancel' onClick={()=>this.flipBackground()}>Cancel</button>
                 </div>
                 :
