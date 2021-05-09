@@ -1,24 +1,33 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import BackpackNav from './BackpackNav';
+import { connect } from 'react-redux';
 
-class Backpack extends Component {
-  constructor (){
-    super();
-    this.state = {
-}
-}
+const Backpack = (props) => {
+  
+    useEffect(() => {
+      console.log(props)
+    })
 
-  render(){
-
-    console.log(this.props)
+    const char = {}
+    
 
     return (
       <div>
-        <BackpackNav id={this.props.match.params.id} />
+        <BackpackNav id={props.match.params.id} />
+
+        <h1>{props.charReducer}</h1>
+
 
       </div>
     )
   }
-}
+  
+  const mapStateToProps = state => {
+    return {
+      charReducer: state.charReducer,
+      userReducer: state.userReducer
+    }
 
-export default Backpack
+  }
+
+export default connect(mapStateToProps) (Backpack)

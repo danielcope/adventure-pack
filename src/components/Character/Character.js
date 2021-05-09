@@ -42,7 +42,6 @@ class Character extends Component {
 
   render() {
 
-    console.log(this.props);
 
     const mappedCharArr = this.props.charReducer.character.map((ele,i) => (
       <section key={ele.char_id} className='char-container'>
