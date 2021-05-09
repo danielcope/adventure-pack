@@ -8,18 +8,19 @@ class AddChar extends Component {
     super();
     this.state = {
       menu:false,
-      name: '',
+      name: 'none',
       armor_class:0,
-      race:'',
+      race:'none',
       max_hp:0,
-      char_class:'',
+      char_class:'none',
       max_hitdice:0,
-      background: '',
+      background: 'none',
       initiative:0,
       speed:0,
       passive_insight:0,
       passive_perception:0,
-      inspiration:0
+      inspiration:0,
+      proficiency: 0
 }
 }
 
@@ -37,6 +38,7 @@ class AddChar extends Component {
   handlePassiveInsightChange = (val) => this.setState({passive_insight:val})
   handlePassivePerceptionChange = (val) => this.setState({passive_perception:val})
   handleInspirationChange = (val) => this.setState({inspiration:val})
+  handleProficiencyChange = (val) => this.setState({proficiency:val})
 
   addChar = async () => {
 
@@ -81,38 +83,55 @@ class AddChar extends Component {
           <div>
             <label className='long-input'>Name:</label>
             <input onChange={e => this.handleNameChange(e.target.value)}/>
+          </div>
+          <div>
             <span >AC:</span>
             <input onChange={e => this.handleAcChange(e.target.value)} className='small-input'/>
           </div>
           <div>
             <span className='long-input'>Race:</span>
             <input onChange={e => this.handleRaceChange(e.target.value)}/>
+          </div>
+          <div>
             <span>Max Hp:</span>
             <input onChange={e => this.handleMaxHpChange(e.target.value)} className='small-input' />
           </div>
           <div>
             <span className='long-input'>Class:</span>
             <input onChange={e => this.handleClassChange(e.target.value)} />
+          </div>
+          <div>
             <span>Total Hit Dice:</span>
             <input onChange={e => this.handleMaxHitDiceChange(e.target.value)} className='small-input'/>
           </div>
           <div>
             <span className='long-input'>Background:</span>
             <input onChange={e => this.handleBackgroundChange(e.target.value)} />
+          </div>
+          <div>
             <span>Initiative:</span>
             <input onChange={e => this.handleInitiativeChange(e.target.value)} className='small-input'/>
           </div>
           <div>
             <span>Speed:</span>
             <input onChange={e => this.handleSpeedChange(e.target.value)} className='small-input' />
+          </div>
+          <div>
             <span>Passive Insight:</span>
             <input onChange={e=>this.handlePassiveInsightChange(e.target.value)} className='small-input'/>
           </div>
           <div>
             <span>Passive Perception:</span>
             <input onChange={e=>this.handlePassivePerceptionChange(e.target.value)} className='small-input' />
+          </div>
+          <div>
             <span>Inspiration:</span>
             <input onChange={e=>this.handleInspirationChange(e.target.value)} className='small-input' />
+          </div>
+
+          <div>
+            <span>Proficiency:</span>
+            <input onChange={e=>this.handleProficiencyChange(e.target.value)} className='small-input' />
           </div>
 
           <button onClick={this.addChar}>Add Character</button>
