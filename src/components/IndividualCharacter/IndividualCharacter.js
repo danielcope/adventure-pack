@@ -216,9 +216,121 @@ class IndividualCharacter extends Component {
       this.setState({ charInfo:arr })
       this.flipAc()
     })
-  
+    .catch(err=>console.log(err))
   }
   
+  editSpeed = async () => {
+    const { char_id } =this.state.charInfo
+    const { newSpeed } = this.state
+  
+    await axios.put(`/api/changespeed/${char_id}`, {newSpeed:newSpeed})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.speed = newSpeed
+      this.setState({ charInfo:arr })
+      this.flipSpeed()
+    })
+    .catch(err=>console.log(err))
+  }
+  
+  editInitiative = async () => {
+    const { char_id } =this.state.charInfo
+    const { newInitiative } = this.state
+  
+    await axios.put(`/api/changeinitiative/${char_id}`, {newInitiative:newInitiative})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.initiative = newInitiative
+      this.setState({ charInfo:arr })
+      this.flipInitiative()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editProficiency = async () => {
+    const { char_id } =this.state.charInfo
+    const { newProficiency } = this.state
+  
+    await axios.put(`/api/changeproficiency/${char_id}`, {newProficiency:newProficiency})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.proficiency = newProficiency
+      this.setState({ charInfo:arr })
+      this.flipProficiency()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editMaxHP = async () => {
+    const { char_id } =this.state.charInfo
+    const { newMaxHP } = this.state
+  
+    await axios.put(`/api/changemaxhp/${char_id}`, {newMaxHP:newMaxHP})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.max_hp = newMaxHP
+      this.setState({ charInfo:arr })
+      this.flipMaxHP()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editInspiration = async () => {
+    const { char_id } =this.state.charInfo
+    const { newInspiration } = this.state
+  
+    await axios.put(`/api/changeinspiration/${char_id}`, {newInspiration:newInspiration})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.inspiration = newInspiration
+      this.setState({ charInfo:arr })
+      this.flipInspiration()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editPP = async () => {
+    const { char_id } =this.state.charInfo
+    const { newPP } = this.state
+  
+    await axios.put(`/api/changepp/${char_id}`, {newPP:newPP})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.passive_perception = newPP
+      this.setState({ charInfo:arr })
+      this.flipPp()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editMaxHD = async () => {
+    const { char_id } =this.state.charInfo
+    const { newMaxHD } = this.state
+  
+    await axios.put(`/api/changemaxhd/${char_id}`, {newHD:newMaxHD})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.max_hitdice = newMaxHD
+      this.setState({ charInfo:arr })
+      this.flipMaxHD()
+    })
+    .catch(err=>console.log(err))
+  }
+
+  editPI = async () => {
+    const { char_id } =this.state.charInfo
+    const { newPI } = this.state
+  
+    await axios.put(`/api/changepi/${char_id}`, {newPI:newPI})
+    .then(res=>{
+      const arr = this.state.charInfo
+      arr.passive_insight = newPI
+      this.setState({ charInfo:arr })
+      this.flipPi()
+    })
+    .catch(err=>console.log(err))
+  }
+
   render () {
 
     const {
@@ -330,7 +442,7 @@ class IndividualCharacter extends Component {
                   <div className='combat-edit'>
                     <input className='stat-input-field' placeholder={speed} onChange={e => this.handleSpeedChange(e.target.value)} />
                     <div className='button-box'>
-                      <button className='edit-button-save' >Save</button>
+                      <button className='edit-button-save' onClick={()=>this.editSpeed()}>Save</button>
                       <button className='edit-button-cancel' onClick={()=>this.flipSpeed()}>Cancel</button>
                     </div>
                   </div>
@@ -347,7 +459,7 @@ class IndividualCharacter extends Component {
                   <div className='combat-edit'>
                     <input className='stat-input-field' placeholder={initiative} onChange={e => this.handleInitiativeChange(e.target.value)} />
                     <div className='button-box'>
-                      <button className='edit-button-save' >Save</button>
+                      <button className='edit-button-save' onClick={()=>this.editInitiative()}>Save</button>
                       <button className='edit-button-cancel' onClick={()=>this.flipInitiative()}>Cancel</button>
                     </div>
                   </div>
@@ -368,7 +480,7 @@ class IndividualCharacter extends Component {
                   { this.state.maxHealthEdit ? 
                     <div className='stat-edit-input'>
                       <input className='stat-input-field-hp' placeholder={initiative} onChange={e => this.handleMaxHealthChange(e.target.value)} />
-                        <button className='edit-button-save' >Save</button>
+                        <button className='edit-button-save' onClick={()=>this.editMaxHP()}>Save</button>
                         <button className='edit-button-cancel' onClick={()=>this.flipMaxHP()}>Cancel</button>
                       </div>
                     :
@@ -402,7 +514,7 @@ class IndividualCharacter extends Component {
                 { this.state.proficiencyEdit ? 
                   <div className='stat-edit-input'>
                     <input className='stat-input-field' placeholder={proficiency} onChange={e => this.handleProficiencyChange(e.target.value)} />
-                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-save' onClick={()=>this.editProficiency()}>Save</button>
                     <button className='edit-button-cancel' onClick={()=>this.flipProficiency()}>Cancel</button>
                   </div>
                   :
@@ -416,7 +528,7 @@ class IndividualCharacter extends Component {
                 { this.state.inspirationEdit ? 
                   <div className='stat-edit-input'>
                     <input className='stat-input-field' placeholder={inspiration} onChange={e => this.handleInspirationChange(e.target.value)} />
-                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-save' onClick={()=>this.editInspiration()}>Save</button>
                     <button className='edit-button-cancel' onClick={()=>this.flipInspiration()}>Cancel</button>
                   </div>
                   :
@@ -431,7 +543,7 @@ class IndividualCharacter extends Component {
                 { this.state.ppEdit ? 
                   <div className='stat-edit-input'>
                     <input className='stat-input-field' placeholder={passive_perception} onChange={e => this.handlePPChange(e.target.value)} />
-                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-save' onClick={()=>this.editPP()}>Save</button>
                     <button className='edit-button-cancel' onClick={()=>this.flipPp()}>Cancel</button>
                   </div>
                   :
@@ -445,7 +557,7 @@ class IndividualCharacter extends Component {
                 { this.state.piEdit ? 
                   <div className='stat-edit-input'>
                     <input className='stat-input-field' placeholder={passive_insight} onChange={e => this.handlePIChange(e.target.value)} />
-                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-save' onClick={()=>this.editPI()}>Save</button>
                     <button className='edit-button-cancel' onClick={()=>this.flipPi()}>Cancel</button>
                   </div>
                   :
@@ -466,7 +578,7 @@ class IndividualCharacter extends Component {
                 { this.state.maxHitDiceEdit ? 
                   <div className='stat-edit-input'>
                     <input className='stat-input-field' placeholder={max_hitdice} onChange={e => this.handleMaxHDChange(e.target.value)} />
-                    <button className='edit-button-save' >Save</button>
+                    <button className='edit-button-save' onClick={()=>this.editMaxHD()} >Save</button>
                     <button className='edit-button-cancel' onClick={()=>this.flipMaxHD()}>Cancel</button>
                   </div>
                   :

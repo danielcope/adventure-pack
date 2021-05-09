@@ -154,12 +154,86 @@ module.exports = {
     
     res.sendStatus(200)
   },
-
+  
   editSpeed: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newSpeed } = req.body;
+  
+    await db.char.edit_speed(newSpeed,char_id)
+    
+    res.sendStatus(200)
+    
+  },
+  
+  editInitiative: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newInitiative } = req.body;
+  
+    await db.char.edit_char_initiative(newInitiative,char_id)
+    
+    res.sendStatus(200)
 
   },
+  editProficiency: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newProficiency } = req.body;
+  
+    await db.char.edit_char_proficiency(newProficiency,char_id)
+    
+    res.sendStatus(200)
 
-  editInitiative: async (req,res) => {
+  },
+  editMaxHP: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newMaxHP } = req.body;
+  
+    await db.char.edit_char_max_hp(newMaxHP,char_id)
+    
+    res.sendStatus(200)
+
+  },
+  editInspiration: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newInspiration } = req.body;
+  
+    await db.char.edit_char_inspiration(newInspiration,char_id)
+    
+    res.sendStatus(200)
+
+  },
+  editPP: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newPP } = req.body;
+  
+    await db.char.edit_passive_perception(newPP,char_id)
+    
+    res.sendStatus(200)
+
+  },
+  editPI: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newPI } = req.body;
+  
+    await db.char.edit_char_passive_insight(newPI,char_id)
+    
+    res.sendStatus(200)
+
+  },
+  editMaxHD: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { newHD } = req.body;
+  
+    await db.char.edit_max_hitdice(newHD,char_id)
+    
+    res.sendStatus(200)
 
   }
 

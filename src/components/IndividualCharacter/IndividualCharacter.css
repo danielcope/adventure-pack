@@ -124,7 +124,8 @@ display: flex;
 }
 
 .button-box {
-display: flex;
+  display: flex;
+  height: 30px;
 }
 
 .edit-button-save {
