@@ -138,10 +138,21 @@ module.exports = {
     const db = req.app.get('db');
     const { char_id } = req.params;
     const { max_hp } = req.body;
-
+    
     await db.char.edit_char_current_hp(max_hp,char_id)
-
+    
     res.sendStatus(200);
+    
+  },
+  
+  changeDice: async (req,res) => {
+    const db = req.app.get('db');
+    const { char_id } = req.params;
+    const { new_hd } = req.body;
+  
+    await db.char.edit_current_hitdice(new_hd,char_id)
 
+    res.sendStatus(200)
   }
+
 }

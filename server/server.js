@@ -49,6 +49,8 @@ app.put('/api/addhealth/:char_id', charCtrl.addHealth)
 app.put('/api/subhealth/:char_id', charCtrl.addHealth)
 app.put('/api/fullheal/:char_id', charCtrl.fullHeal)
 
+app.put('/api/changedice/:char_id', charCtrl.changeDice )
+
 app.delete( '/api/sacrifice/:char_id', charCtrl.deleteChar )
 
 //Backpack endpoints

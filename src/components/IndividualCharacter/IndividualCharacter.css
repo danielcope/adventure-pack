@@ -76,3 +76,16 @@ h1 {
   justify-content: space-between;
 }
 
+.dice-button {
+  margin: 5px;
+  width: 40px;
+  background: transparent;
+  border: #DCD0C0 solid 1px;
+  font-size: 24px;
+}
+
+.edit-input {
+  display: flex;
+  align-items: center;
+}
+

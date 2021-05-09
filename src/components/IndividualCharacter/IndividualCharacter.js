@@ -11,7 +11,33 @@ class IndividualCharacter extends Component {
     super() 
     this.state = {
       charInfo: {},
-      healthAddSub: 0
+      healthAddSub: 0,
+      newName: '',
+      newRace: '',
+      newClass: '',
+      newBackground: '',
+      newAC: 0,
+      newSpeed: 0,
+      newInitiative: 0,
+      newProficiency: 0,
+      newInspiration: 0,
+      newPP:0,
+      newPI:0,
+      newMaxHP: 0,
+      newMaxHD: 0,
+      nameEdit: false,
+      raceEdit: false,
+      classEdit: false,
+      backgroundEdit: false,
+      acEdit: false,
+      speedEdit: false,
+      maxHealthEdit: false,
+      initiativeEdit: false,
+      proficiencyEdit: false,
+      inspirationEdit: false,
+      ppEdit: false,
+      piEdit: false,
+      maxHitDiceEdit: false
     }
   }
 
@@ -69,6 +95,61 @@ class IndividualCharacter extends Component {
     .catch(err=>console.log(err))
   }
 
+  addDice = async () => {
+    const { char_id } = this.state.charInfo
+    const arr = this.state.charInfo
+    arr.current_hitdice ++
+
+    await this.setState({ charInfo:arr })
+
+    await axios.put(`/api/changedice/${char_id}`, {new_hd:arr.current_hitdice})
+    .then(res=>
+      console.log('hit'))
+    .catch(err=>console.log(err))
+  } 
+  
+  subDice = async () => {
+    const { char_id } = this.state.charInfo
+    const arr = this.state.charInfo
+    arr.current_hitdice -- 
+  
+    await this.setState({ charInfo:arr })
+  
+    await axios.put(`/api/changedice/${char_id}`, {new_hd:arr.current_hitdice})
+    .then(res=>
+      console.log('hit'))
+    .catch(err=>console.log(err))
+  }
+
+  flipName = () => this.setState({nameEdit:!this.state.nameEdit})
+  flipRace = () => this.setState({raceEdit:!this.state.raceEdit})
+  flipClass = () => this.setState({classEdit:!this.state.classEdit})
+  flipBackground = () => this.setState({backgroundEdit:!this.state.backgroundEdit})
+  flipAc = () => this.setState({acEdit:!this.state.acEdit})
+  flipSpeed = () => this.setState({speedEdit:!this.state.speedEdit})
+  flipInitiative = () => this.setState({initiativeEdit:!this.state.initiativeEdit})
+  flipProficiency = () => this.setState({proficiencyEdit:!this.state.proficiencyEdit})
+  flipInspiration = () => this.setState({inspirationEdit:!this.state.inspirationEdit})
+  flipPp = () => this.setState({ppEdit:!this.state.ppEdit})
+  flipPi = () => this.setState({piEdit:!this.state.piEdit})
+  flipMaxHD = () => this.setState({maxHitDiceEdit:!this.state.maxHitDiceEdit})
+  flipMaxHP = () => this.setState({maxHealthEdit:!this.state.maxHealthEdit})
+
+  handleNameChange = (val) => this.setState({newName:val})
+  handleRaceChange = (val) => this.setState({newRace:val})
+  handleClassChange = (val) => this.setState({newClass:val})
+  handleBackgroundChange = (val) => this.setState({newBackground:val})
+  handleACChange = (val) => this.setState({newAC:val})
+  handleSpeedChange = (val) => this.setState({newSpeed:val})
+  handleInitiativeChange = (val) => this.setState({newInitiative:val})
+  handleMaxHealthChange = (val) => this.setState({newMaxHP:val})
+  handleProficiencyChange = (val) => this.setState({newProficiency:val})
+  handleInspirationChange = (val) => this.setState({newInspiration:val})
+  handlePPChange = (val) => this.setState({newPP:val})
+  handlePIChange = (val) => this.setState({newPI:val})
+  handleMaxHDChange = (val) => this.setState({newMaxHD:val})
+
+
   
   render () {
 
@@ -95,10 +176,20 @@ class IndividualCharacter extends Component {
       <div>
         <IndividualCharNav id={this.props.match.params.id} />
         <div className='char-stats-container'>
+          
+          
           <div className='name-bar'>
-            <span className='name'>{name}
-              <div className='edit-pencil'>&#x270E;</div>
+            { this.state.nameEdit ? 
+              <div className='edit-input'>
+                <input placeholder={name} onChange={e => this.handleNameChange(e.target.value)} />
+                <button>Save</button>
+                <button onClick={()=>this.flipName()}>Cancel</button>
+              </div>
+            : 
+             <span className='name'>{name}
+              <div className='edit-pencil' onClick={()=>this.flipName()}>&#x270E;</div>
             </span>
+            }
           </div>
 
         <section className='char-info-container' >
@@ -142,13 +233,21 @@ class IndividualCharacter extends Component {
                 <span className='info-text'> {speed} 
                   <div className='edit-pencil'>&#x270E;</div>
                 </span>
-
               </section>
+
+              <section className='char-info-stats'>
+                <h4>Initiative</h4>
+                <span className='info-text'> {initiative} 
+                  <div className='edit-pencil'>&#x270E;</div>
+                </span>
+              </section>
+
+
 
             </section>
 
               <section className='health-container'>
-                <section className='char-info-block'>
+                <section>
                   <h4>&#x2764; Health: </h4> 
                   <div className='current-max'>
                     <span className='info-text'> {current_hp} / {max_hp} </span>
@@ -175,21 +274,48 @@ class IndividualCharacter extends Component {
 
           <section className='extra-stats'>
             
-              <section className='char-info-stats'>
+              <section className='extra-info'>
                 <h4> Proficiency: </h4> 
                 <span className='info-text'>{proficiency}
                   <div className='edit-pencil'>&#x270E;</div>
                 </span>
               </section>
               
-              <section className='char-info-stats'>
-                <h4> Proficiency: </h4> 
-                <span className='info-text'>{proficiency}
+              <section className='extra-info'>
+                <h4>Inspiration: </h4> 
+                <span className='info-text'>{inspiration}
                   <div className='edit-pencil'>&#x270E;</div>
                 </span>
               </section>
-              
 
+              <section className='extra-info'>
+                <h4>Passive Perception: </h4> 
+                <span className='info-text'>{passive_perception}
+                  <div className='edit-pencil'>&#x270E;</div>
+                </span>
+              </section>
+
+              <section className='extra-info'>
+                <h4>Passive Insight: </h4> 
+                <span className='info-text'>{passive_insight}
+                  <div className='edit-pencil'>&#x270E;</div>
+                </span>
+              </section>
+              
+              <section className='extra-info'>
+                <h4>Current Hit Dice: </h4> 
+                <span className='info-text'>{current_hitdice}
+                <button className='dice-button' onClick={() => this.addDice()}>+</button>
+                <button className='dice-button' onClick={() => this.subDice()}>-</button>
+                </span>
+              </section>
+
+              <section className='extra-info'>
+                <h4>Max Hit Dice: </h4> 
+                <span className='info-text'>{max_hitdice}
+                  <div className='edit-pencil'>&#x270E;</div>
+                </span>
+              </section>
           </section>
 
 
