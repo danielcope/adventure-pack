@@ -13,8 +13,6 @@ class BackpackList extends Component {
 
   delete = async (item_id) => {
     
-    console.log(item_id)
-
     await axios.delete(`/api/backpack/${item_id}`)
     .then(res=>{
       this.props.getBackpack()

@@ -31,7 +31,7 @@ class IndividualCharNav extends Component {
         <div className={ this.state.menu ? 'individual-char-nav-opened' : 'individual-char-nav-closed'}>
           <Link className='light-text' to='/allcharacters'>All Characters</Link>
           <Link className='light-text' to='/allspells'>All Spells</Link>
-          <Link className='light-text' to={`/backpack/${this.props.id}`}>My backpack</Link>
+          <Link className='light-text' to={`/backpack/${this.props.id}`}>My Backpack</Link>
           <Link className='light-text' to={`/spellbook/${this.props.id}`}>My Spells</Link>
           <Link className='light-text' to='/' onClick={this.fullLogout}>Logout</Link>
         </div>
