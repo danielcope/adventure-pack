@@ -1,33 +1,44 @@
-import React, { useEffect } from 'react'
+import React, { Component } from 'react'
 import BackpackNav from './BackpackNav';
 import { connect } from 'react-redux';
 
-const Backpack = (props) => {
+class Backpack extends Component {
+  constructor () {
+    super()
+    this.state = {
+      charInfo: {}
+    }
+  }
+
+  componentDidMount = () => {
+
+  }
+
+  storeChar = () => {
+    for (let i = 0; i < this.props.charReducer.character.length; i++) {
+      if (parseInt(this.props.charReducer.character[i].char_id) === parseInt(this.props.match.params.id)) {
+        this.setState({charInfo:this.props.charReducer.character[i]})
+      }
+    }
+  }
   
-    useEffect(() => {
-      console.log(props)
-    })
-
-    const char = {}
+  getItems = () => {
+    // const { char_id } = 
+  }
     
-
+  render () {
     return (
       <div>
-        <BackpackNav id={props.match.params.id} />
+        <BackpackNav id={this.props.match.params.id} />
 
-        <h1>{props.charReducer}</h1>
+        <h1>sadfasdf</h1>
 
 
       </div>
     )
   }
+}
   
-  const mapStateToProps = state => {
-    return {
-      charReducer: state.charReducer,
-      userReducer: state.userReducer
-    }
-
-  }
+const mapStateToProps = state => state
 
 export default connect(mapStateToProps) (Backpack)

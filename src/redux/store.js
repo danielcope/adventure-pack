@@ -1,12 +1,14 @@
 import { createStore } from 'redux'
 import userReducer from './userReducer'
 import charReducer from './charReducer'
+import backpackReducer from './backpackReducer'
 
 import { combineReducers } from 'redux'
 
 const reducer = combineReducers({
   userReducer,
-  charReducer
+  charReducer,
+  backpackReducer
 })
 
 export default createStore(

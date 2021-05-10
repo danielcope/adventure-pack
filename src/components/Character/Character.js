@@ -29,6 +29,10 @@ class Character extends Component {
       .catch(err => console.log(err))
   }
 
+  getBackpack = async () => {
+
+  }
+
   deleteChar = (char_id) => {
     axios.delete(`/api/sacrifice/${char_id}`)
     .then(res=> {

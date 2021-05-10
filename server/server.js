@@ -42,8 +42,6 @@ app.post( '/auth/emailthanks', nodemailer.emailThanks)
 //Character endpoints
 app.get( '/api/character', charCtrl.getChar )
 app.post( '/api/character', charCtrl.addChar )
-
-
 app.put('/api/addhealth/:char_id', charCtrl.addHealth)
 app.put('/api/subhealth/:char_id', charCtrl.addHealth)
 app.put('/api/fullheal/:char_id', charCtrl.fullHeal)
@@ -61,7 +59,6 @@ app.put('/api/changeinspiration/:char_id', charCtrl.editInspiration)
 app.put('/api/changepp/:char_id', charCtrl.editPP)
 app.put('/api/changepi/:char_id', charCtrl.editPI)
 app.put('/api/changemaxhd/:char_id', charCtrl.editMaxHD)
-
 app.delete( '/api/sacrifice/:char_id', charCtrl.deleteChar )
 
 //Backpack endpoints
