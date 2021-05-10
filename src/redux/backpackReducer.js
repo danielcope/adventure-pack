@@ -5,14 +5,14 @@ const initialState = {
 const GET_ITEMS ='GET_ITEMS'
 const LOGOUT_USER = 'LOGOUT_USER'
 
-export function getItemArr (item) {
+export function getItemArr (backpack) {
   return {
     type: GET_ITEMS,
-    payload: item
+    payload: backpack
   }
 }
 
-export function clearChar () {
+export function clearBackpack () {
   return {
     type: LOGOUT_USER
   }
@@ -23,7 +23,7 @@ export default function reducer (state = initialState,action) {
     case GET_ITEMS:
       return {
         ...state,
-        item:action.payload
+        backpack:action.payload
       }
 
     case LOGOUT_USER:

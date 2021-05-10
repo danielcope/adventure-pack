@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import BackpackNav from './BackpackNav';
 import { connect } from 'react-redux';
+import { getItemArr } from '../../redux/backpackReducer'
+import axios from 'axios';
+import BackpackList from './BackpackList';
+import AddItem from './AddItem';
+
+import './Backpack.css'
 
 class Backpack extends Component {
   constructor () {
@@ -10,8 +16,9 @@ class Backpack extends Component {
     }
   }
 
-  componentDidMount = () => {
-
+  componentDidMount = async () => {
+    this.getBackpack()
+    this.storeChar()
   }
 
   storeChar = () => {
@@ -22,18 +29,25 @@ class Backpack extends Component {
     }
   }
   
-  getItems = () => {
-    // const { char_id } = 
+  getBackpack = async () => {
+    const id = parseInt(this.props.match.params.id)
+
+    await axios.get(`/api/backpack/${id}`)
+    .then(res=>{
+      this.props.getItemArr(res.data)
+    })
+    .catch(err=>console.log(err))
   }
+
     
   render () {
     return (
       <div>
         <BackpackNav id={this.props.match.params.id} />
+        <AddItem id={this.props.match.params.id} getBackpack={this.getBackpack}/>
+        <h1>{this.state.charInfo.name} Backpack</h1>
 
-        <h1>sadfasdf</h1>
-
-
+        <BackpackList getBackpack={this.getBackpack} />
       </div>
     )
   }
@@ -41,4 +55,4 @@ class Backpack extends Component {
   
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps) (Backpack)
+export default connect(mapStateToProps, {getItemArr}) (Backpack)

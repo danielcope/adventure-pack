@@ -62,10 +62,12 @@ app.put('/api/changemaxhd/:char_id', charCtrl.editMaxHD)
 app.delete( '/api/sacrifice/:char_id', charCtrl.deleteChar )
 
 //Backpack endpoints
-app.get( '/api/backpack', backpackCtrl.getItem )
+app.get( '/api/backpack/:char_id', backpackCtrl.getItem )
 app.post( '/api/backpack', backpackCtrl.addItem )
-app.put( '/api/backpack', backpackCtrl.editItem )
-app.delete( '/api/backpack', backpackCtrl.deleteItem )
+
+app.put( '/api/backpack/:item_id', backpackCtrl.editName )
+app.put( '/api/backpackdesc/:item_id', backpackCtrl.editDesc )
+app.delete( '/api/backpack/:item_id', backpackCtrl.deleteItem )
 
 //Journal endpoints
 app.get( '/journal/entry', journalCtrl.getEntry )

@@ -7,6 +7,7 @@ import IndividualSpell from './components/IndividualSpell/IndividualSpell'
 import Backpack from './components/Backpack/Backpack'
 import Journal from './components/Journal/Journal'
 import SpellBook from './components/SpellBook/SpellBook'
+import Item from './components/Backpack/Item'
 
 
 export default (
@@ -19,6 +20,7 @@ export default (
     <Route path='/individualspell/:id' component={IndividualSpell} />
 
     <Route path='/backpack/:id' component={Backpack} />
+    <Route path='/item/:id' component={Item} />
 
     <Route path='/journal/:id' component={Journal} />
 
