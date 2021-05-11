@@ -84,7 +84,7 @@ class Character extends Component {
       <AddChar getCharacter={this.getCharacter}/>
       
 
-      <section>
+      <section className='mapped-char'>
         {mappedCharArr}
       </section>
       </div>

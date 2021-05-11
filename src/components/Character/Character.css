@@ -28,6 +28,8 @@ nav{
   box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
   margin: 25px;
   padding: 5px;
+  width: 30px;
+  min-width: 300px;
   /* height: 75vh; */
   /* box-shadow: 0px 0px 13px 5px  grey; */
   
@@ -258,4 +260,17 @@ nav{
 
 .extra-info {
   width: 45%;
+}
+
+.mapped-char {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 770px) {
+  .char-container {
+    width: 40%;
+  }
+
 }

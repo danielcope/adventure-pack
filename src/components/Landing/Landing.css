@@ -1,9 +1,10 @@
 .landing-view {
-  height:100vh;
+  height:95.25vh;
   -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
   box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
-  padding: 15px;
   margin:8px;
+  padding: 8px;
+  background: #ffe2e0;
 }
 
 .landing-login {
@@ -13,6 +14,34 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+.landing-greeting {
+  position: fixed;
+  left: 100px;
+  bottom: 200px;
+  font-size: 32px;
+  width: 200px;
+  text-align: center;
+}
+
+@media (min-width:600px) {
+  .landing-login {
+    width:0px;
+    height:0px;
+    opacity: 0;
+    position: fixed;
+    top: -1000px;
+  }
+
+@media (min-width:1000px) {
+  .landing-greeting {
+    left: 10vw;
+    font-size: 40px;
+    width: 250px;
+  }
+}
+
 }
 
 

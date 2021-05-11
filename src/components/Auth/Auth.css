@@ -5,7 +5,7 @@
 }
 
 .auth-opened {
-  height: 50vh;
+  height: 60vh;
   border: 3px solid #4E4E56;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,9 @@
   align-items: center;  
   position: relative;
   top: 40px;
+  background: #4E4E56;
+  z-index: 1;
+  border-radius: 8px;
 }
 
 .auth {
@@ -25,7 +28,6 @@
   justify-content: space-evenly;
   height:100%;  
   transition: opacity 0.4s, top 0.4s;
-
 }
 
 .auth-closed {
@@ -58,3 +60,25 @@
   color: #DCD0C0;
 }
 
+@media (min-width:600px) {
+  
+  .auth-opened, .auth-closed {
+    position: fixed;
+    right: 15px;
+    top: 15vh;
+    width: 50vw;
+    height: 50vh;
+    opacity: inherit;
+    background: #4E4E56;
+    display: flex;
+    justify-content: center;
+    border: 3px solid #4E4E56;
+
+  }
+}
+
+@media (min-width:1000px) {
+  .auth-opened, .auth-closed{
+    max-width: 600px;
+  }
+}

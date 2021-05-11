@@ -26,6 +26,9 @@ class Landing extends Component {
         <section className={ this.state.menu ? 'auth-opened' : 'auth-closed' }>
           <Auth history={this.props.history}/>
         </section>
+
+        <span className='landing-greeting'>Adventure is out there!</span>
+
       </div>
 
     )
