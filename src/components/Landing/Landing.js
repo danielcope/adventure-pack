@@ -1,30 +1,23 @@
-import React, {Component} from 'react'
+import React, { useState} from 'react'
 import Auth from '../Auth/Auth'
 import { connect } from 'react-redux'
 
 import './Landing.css'
 
-class Landing extends Component {
-  constructor () {
-    super();
-    this.state = {
-      menu: false
-    }
-  }
+const Landing = (props) => {
 
-  flipMenu = () => this.setState({menu:!this.state.menu})
+  const [menu,flipMenu] = useState(false)
 
-  render() {
-
+  
     return (
       <div className='landing-view'>
 
         <section className='landing-login'>
-          <span  onClick={this.flipMenu}>Login &equiv;</span>
+          <span  onClick={() => flipMenu(!menu)}>Login &equiv;</span>
         </section>
 
-        <section className={ this.state.menu ? 'auth-opened' : 'auth-closed' }>
-          <Auth history={this.props.history}/>
+        <section className={ menu ? 'auth-opened' : 'auth-closed' }>
+          <Auth history={props.history}/>
         </section>
 
         <span className='landing-greeting'>Adventure is out there!</span>
@@ -33,7 +26,6 @@ class Landing extends Component {
 
     )
   }
-}
 
 const mapStateToProps = state => state
 

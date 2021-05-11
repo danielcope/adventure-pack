@@ -1,38 +1,28 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../../redux/userReducer'
 import { clearChar } from '../../redux/charReducer'
 
 
-class CharNav extends Component {
-  constructor() {
-    super() 
-      this.state = {
-        navMenu:false
-      }
-    }
+const CharNav = (props) => {
   
-    flipMenu = () => this.setState({navMenu:!this.state.navMenu})
+  const [menu,flipMenu] = useState(false)
     
-    fullLogout = () => {
-      this.props.clearChar()
-      this.props.logout()
-    }
-
-  render() {
-
-
+    
     return (
       <div className='nav'>
-        <span className='ham' onClick={this.flipMenu}>&equiv;</span>
+        <span className='ham' onClick={() => flipMenu(!menu)}>&equiv;</span>
 
-        <section className={ this.state.navMenu ? 'char-nav-opened' : 'char-nav-closed'}>
-          <div>
+        <section className={ menu ? 'char-nav-opened' : 'char-nav-closed'}>
+          {/* <div>
             <Link className='light-text' to='/allspells'>Spells</Link> 
-          </div>
+          </div> */}
           <div>
-            <Link className='light-text' to='/' onClick={this.fullLogout}>Logout</Link>
+            <Link className='light-text' to='/' onClick={() => {
+              props.clearChar()
+              props.logout()
+            }}>Logout</Link>
           </div>
 
         </section>
@@ -40,8 +30,5 @@ class CharNav extends Component {
 
     )
   }
-}
-
-
 
 export default connect(null, {clearChar, logout})(CharNav)

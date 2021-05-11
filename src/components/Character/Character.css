@@ -253,7 +253,12 @@ nav{
   max-width: 75%;
 }
 
-.spellbook, .scroll {
+.spellbook {
+  color: grey;
+  font-size: 60px;
+}
+
+.scroll {
   color: black;
   font-size: 60px;
 }
@@ -273,4 +278,27 @@ nav{
     width: 40%;
   }
 
+}
+
+@media (min-width: 1025px) {
+  .char-info-block {
+    width: 45%;
+  }
+
+  .char-info-container{
+    flex-direction: row;
+  }
+
+  .combat-stats {
+    width: 60vw;
+    justify-content: space-evenly;
+  }
+
+  .health-container {
+    width: 40%;
+  }
+
+  .info-text {
+    margin: 15px;
+  }
 }

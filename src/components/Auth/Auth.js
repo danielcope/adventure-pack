@@ -33,9 +33,16 @@ class Auth extends Component {
 
     await axios.post('/auth/register', {username:username,password:password,email:email})
 
-    .then(res => {
-      this.props.updateUser(res.data)
-      this.props.history.push('/allcharacters')
+    .then( async (res) => {
+      await axios.post('/auth/emailthanks',{email:email})
+      .then((res)=>{
+        this.props.updateUser(res.data)
+        this.props.history.push('/allcharacters')
+      })
+      .catch(err=>{
+        console.log(err)
+        this.setState({errorMsg:'Incorrect email'})
+      })
     })
     
     .catch(err => {

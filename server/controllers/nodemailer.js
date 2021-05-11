@@ -1,3 +1,8 @@
+require('dotenv').config()
+const nodemailer = require('nodemailer')
+const {EMAIL_PASSWORD} = process.env;
+
+
 module.exports = {
   emailVerify: async (req,res) => {
   //   const db = req.app.get('db')
@@ -40,14 +45,14 @@ module.exports = {
       from: 'adventurepack98@gmail.com',
       to: `${req.body.email}`,
       subject: 'Thanks for registering!',
-      text: `Thank you for registering with us! `
+      text: `Thank you for registering with us!`
     }
 
     transporter.sendMail(option, function(err) {
       if(err) {
         console.log('Email not sent.')
       } else {
-        console.log('Email token sent.')
+        console.log('Email sent.')
       }
     })
   }

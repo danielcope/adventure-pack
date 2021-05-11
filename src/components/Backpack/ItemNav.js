@@ -1,6 +1,6 @@
 import React from 'react'
 
-const {component name} = () => {
+const ItemNav = () => {
 
   return (
     <div></div>
@@ -8,4 +8,4 @@ const {component name} = () => {
 )
 }
 
-export default {component name}
+export default (ItemNav)
