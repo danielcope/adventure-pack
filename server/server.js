@@ -12,12 +12,7 @@ const nodemailer = require('./controllers/nodemailer');
 const app = express();
 const { SERVER_PORT,CONNECTION_STRING,SESSION_SECRET,EMAIL_PASSWORD } = process.env;
 
-
-
 app.use(express.json());
-
-
-
 
 app.use(express.static(`${__dirname}/../build`))
 
