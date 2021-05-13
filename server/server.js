@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
-
 const authCtrl = require('./controllers/authCtrl')
 const charCtrl = require('./controllers/charCtrl')
 const backpackCtrl = require('./controllers/backpackCtrl')
@@ -10,14 +9,17 @@ const journalCtrl = require('./controllers/journalCtrl')
 const npcCtrl = require('./controllers/npcCtrl')
 const spellsCtrl = require('./controllers/spellsCtrl')
 const nodemailer = require('./controllers/nodemailer');
-
-
 const app = express();
-
-
 const { SERVER_PORT,CONNECTION_STRING,SESSION_SECRET,EMAIL_PASSWORD } = process.env;
+
+
+
 app.use(express.json());
 
+
+
+
+app.use(express.static(`${__dirname}/../build`))
 
 app.use(session({
   secret: SESSION_SECRET,

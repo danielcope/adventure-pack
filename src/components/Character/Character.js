@@ -68,7 +68,7 @@ class Character extends Component {
           <Link className='option' to={`/backpack/${ele.char_id}`}>Backpack
             <img className='backpack' alt='backpack' src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ChYOrd3pfTtG7_pUSzzC7y9sFu8Pb6KRog&usqp=CAU"} />
           </Link>
-          <Link className='option' to={`/backpack/${ele.char_id}`}>Spells
+          <Link className='option'>Spells
           
           <FontAwesomeIcon icon={faBook} className='spellbook' />
 
