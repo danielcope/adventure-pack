@@ -45,8 +45,6 @@ class Character extends Component {
  
 
   render() {
-
-
     const mappedCharArr = this.props.charReducer.character.map((ele,i) => (
       <section key={ele.char_id} className='char-container'>
         <section className='name-trash-container'>
@@ -68,18 +66,14 @@ class Character extends Component {
           <Link className='option' to={`/backpack/${ele.char_id}`}>Backpack
             <img className='backpack' alt='backpack' src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ChYOrd3pfTtG7_pUSzzC7y9sFu8Pb6KRog&usqp=CAU"} />
           </Link>
-          <Link className='option'>Spells
-          
-          <FontAwesomeIcon icon={faBook} className='spellbook' />
-
-          </Link>
+          {/* <Link className='option'>Spells <FontAwesomeIcon icon={faBook} className='spellbook' /> </Link> */}
         </section>
 
       </section>
     ))
 
     return (
-      <div>
+      <div className='char-view'>
       <CharNav />
       <AddChar getCharacter={this.getCharacter}/>
       

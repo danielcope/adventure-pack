@@ -6,7 +6,6 @@
 
 .auth-opened {
   height: 60vh;
-  border: 3px solid #4E4E56;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -16,6 +15,18 @@
   background: #4E4E56;
   z-index: 1;
   border-radius: 8px;
+  box-shadow: 5px 5px 15px 5px grey;
+  border: #DA635D solid 3px;
+}
+
+.auth-closed {
+  position:fixed;
+  top: -1000px;
+  transition: opacity 0s, top 1s;
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  z-index: 1;
 }
 
 .auth {
@@ -30,14 +41,6 @@
   transition: opacity 0.4s, top 0.4s;
 }
 
-.auth-closed {
-  position:fixed;
-  top: -1000px;
-  transition: opacity 0s, top 1s;
-  width: 0px;
-  height: 0px;
-  opacity: 0;
-}
 
 .auth-button-container {
   display: flex;
@@ -72,7 +75,7 @@
     background: #4E4E56;
     display: flex;
     justify-content: center;
-    border: 3px solid #4E4E56;
+    border: 3px solid #DA635D;
 
   }
 }

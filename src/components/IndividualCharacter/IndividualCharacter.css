@@ -5,7 +5,7 @@ h1 {
 .individual-char-nav-opened {
   display: flex;
   flex-direction: column;
-  height: 80%;
+  height: 100%;
   background: rgb(255, 242, 200);
   position: fixed;
   top: 10vh;
@@ -139,3 +139,39 @@ display: flex;
   border: none;
 }
 
+@media (min-width: 1023px) {
+
+  .ham {
+    position: fixed;
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+  }
+
+  .individual-char-nav-opened {
+    position: static;
+    flex-direction: row;
+    box-shadow: none;
+    border: none;
+    width: 50%;
+  }
+  
+  .individual-char-nav-closed {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    height: 10vh;
+    width: 50%;
+    opacity: inherit;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .light-text {
+    font-size: 24px;
+  }
+
+
+
+}

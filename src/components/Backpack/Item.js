@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import BackpackNav from './BackpackNav';
+import ItemNav from './ItemNav';
 
 class Item extends Component {
   constructor (){
@@ -63,11 +63,9 @@ class Item extends Component {
 
   render(){
    
-    
-
     return (
       <div >
-        <BackpackNav />
+        <ItemNav id={this.state.item.char_id} />
 
         <div className='container-item'>
           { this.state.editName ?

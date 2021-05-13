@@ -23,6 +23,9 @@
   font-size: 32px;
   width: 200px;
   text-align: center;
+  -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
+  box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
+  padding: 15px;
 }
 
 @media (min-width:600px) {
@@ -36,9 +39,9 @@
 
 @media (min-width:1000px) {
   .landing-greeting {
-    left: 10vw;
-    font-size: 40px;
-    width: 250px;
+    left: 15vw;
+    font-size: 50px;
+    width: 350px;
   }
 }
 
