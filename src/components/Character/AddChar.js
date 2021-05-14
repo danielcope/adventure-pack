@@ -71,7 +71,7 @@ class AddChar extends Component {
 
 
     return (
-      <div>
+      <div className='add-char' >
         <div className='add-char-button'>
           { !this.state.menu ? 
           <span className='add' onClick={this.flipAddMenu}>Add New Char &#43;</span>
