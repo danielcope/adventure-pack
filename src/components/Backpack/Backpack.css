@@ -1,7 +1,4 @@
 h1 {
-  border-left: grey 1px solid;
-  border-bottom: grey 1px solid;
-  margin: 20px;
   text-transform: capitalize;
 }
 
@@ -29,11 +26,9 @@ button {
 }
 
 .item-name {
-  border-left: grey 1px solid;
   text-transform: capitalize;
   margin-right: 20px;
   font-size: 24px;
-  text-decoration: underline;
 }
 
 .view {
@@ -44,6 +39,11 @@ button {
 
 .view:hover {
   cursor: pointer;
+}
+
+.delete-item {
+  font-size: 24px;
+  text-align: center;
 }
 
 .name-item {
@@ -103,4 +103,27 @@ button {
 .add-item-block {
   display: flex;
   flex-direction: column;
+}
+
+.mapped-items {
+  box-shadow: 0px 5px 15px 5px #c7c7c7;
+  padding: 15px;
+  margin: 10px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+.backpack-owner {
+  padding: 15px;
+  box-shadow: 0px 5px 15px 5px #c7c7c7;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+@media (min-width: 700px) {
+
+  .backpack-owner, .mapped-items {
+    max-width: 50%;
+  }
+
 }

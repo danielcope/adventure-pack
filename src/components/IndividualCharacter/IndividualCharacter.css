@@ -35,29 +35,36 @@ h1 {
 
 .char-stats-container {
   margin: 8px;
-  padding: 15px;
+  padding: 5px;
   -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
   box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .name-bar {
   display: flex;
-  height: 10vh;
+  height: 15vh;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0px 5px 15px 5px #c7c7c7;
 }
 
 .name {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   font-size: 36px;
   font-weight: bold;
   text-transform: capitalize;
-  padding: 5px;
-  display: flex;
   width: 100%;
-  border-bottom: #4E4E56 1px solid;
-  border-left: #4E4E56 1px solid;
+  height: 100%;
 }
 
 .edit-pencil {
-  /* height: 100%; */
   width: 20%;
   font-size: 18px;
   text-align: center;
@@ -65,15 +72,21 @@ h1 {
 
 .combat-stats {
   display: flex;
-  width: 100%;
-  padding-bottom: 15px;
-  border-bottom: #DA635D solid 1px;
+  padding: 15px;
+  box-shadow: 0px 5px 15px 5px #c7c7c7;
+  border-radius: 15px;
+  margin-top: 20px;
 }
 
 .extra-stats {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px 5px #c7c7c7;
+  margin-top: 20px;
+  
 }
 
 .dice-button {

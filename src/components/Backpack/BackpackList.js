@@ -24,7 +24,7 @@ class BackpackList extends Component {
 
     const mappedBackpack = this.props.backpackReducer.backpack.map((ele,i)=>(
       <section key={ele.item_id} className='item-container'>
-        <button onClick={() => this.delete(ele.item_id)}>X</button>
+        <button className='delete-item' onClick={() => this.delete(ele.item_id)}>X</button>
         <span className='item-name'>{ele.item_name}</span>
         <Link className='view' to={`/item/${ele.item_id}`}>View</Link>
       </section>
@@ -32,7 +32,7 @@ class BackpackList extends Component {
 
 
     return (
-      <div>{mappedBackpack}</div>
+      <div className='mapped-items'>{mappedBackpack}</div>
     )
   }
 }
