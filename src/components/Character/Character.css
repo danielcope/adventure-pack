@@ -41,7 +41,7 @@ nav{
   padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   transition: opacity 0.4s, top 0.4s;
   -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
@@ -84,7 +84,6 @@ nav{
   z-index: 1;
   font-size: 30px;  
   background-color: #DA635D;
-
 }  
 
 .char-nav-closed {
@@ -270,9 +269,16 @@ nav{
   flex-wrap: wrap;
 }
 
+
+
 @media (min-width: 770px) {
   .char-container {
-    width: 40%;
+    width: 90%;
+  }
+
+  .mapped-char {
+    width: 50%;
+    flex-direction: column;
   }
 
 }

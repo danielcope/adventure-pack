@@ -81,8 +81,8 @@ class AddChar extends Component {
 
         <section className={ this.state.menu ? 'add-form-opened' : 'add-form-closed'}>
           <div>
-            <label className='long-input'>Name:</label>
-            <input onChange={e => this.handleNameChange(e.target.value)}/>
+            <span className='add-char-name'>Name:</span>
+            <input className='long-input' onChange={e => this.handleNameChange(e.target.value)}/>
           </div>
           <div>
             <span >AC:</span>

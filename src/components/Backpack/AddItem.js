@@ -43,7 +43,7 @@ class AddItem extends Component {
         'add-form-closed'}>
             <section className='add-item-block'>
               <label>Item Name</label>
-              <input onChange={e=>this.handleName(e.target.value)} placeholder='add item'/>
+              <input className='add-item-input' onChange={e=>this.handleName(e.target.value)} placeholder='add item'/>
             </section>
             <section className='add-item-block'>
               <label>Item Description</label>
