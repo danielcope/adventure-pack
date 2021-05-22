@@ -15,9 +15,9 @@ const CharNav = (props) => {
         <span className='ham' onClick={() => flipMenu(!menu)}>&equiv;</span>
 
         <section className={ menu ? 'char-nav-opened' : 'char-nav-closed'}>
-          {/* <div>
+          <div>
             <Link className='light-text' to='/allspells'>Spells</Link> 
-          </div> */}
+          </div>
           <div>
             <Link className='light-text' to='/' onClick={() => {
               props.clearChar()
