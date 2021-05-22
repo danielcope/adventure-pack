@@ -22,6 +22,10 @@ button {
   border-radius: 5px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .item-container {
   margin: 15px;
   display: flex;
@@ -30,6 +34,7 @@ button {
 .item-name {
   text-transform: capitalize;
   margin-right: 20px;
+  margin-left: 20px;
   font-size: 24px;
 }
 
@@ -46,6 +51,10 @@ button {
 .delete-item {
   font-size: 24px;
   text-align: center;
+}
+
+.delete-item:hover {
+  cursor: pointer;
 }
 
 .name-item {
@@ -91,6 +100,7 @@ button {
   height: 95%;
   width: 98%;
   text-align: start;
+  margin: 5px;
 }
 
 .desc-button {
@@ -106,6 +116,10 @@ button {
   flex-direction: column;
   width:100%;
   height:45%;
+}
+
+.add-item-input {
+  margin: 5px;
 }
 
 .mapped-items {
@@ -145,7 +159,7 @@ button {
   .add-form-opened, .add-form-closed {
     position: fixed;
     right: 25px;
-    top: 100px;
+    top: 15vh;
     opacity: inherit;
     height: 400px;
     width: 35%;
@@ -154,14 +168,12 @@ button {
     transition: opacity 0.4s, top 0.4s;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
     padding: 15px;
-  }
-
-  .desc-input { 
 
   }
+
+  
 
 
 }

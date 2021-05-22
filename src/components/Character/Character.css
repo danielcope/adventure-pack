@@ -42,7 +42,6 @@ nav{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
   transition: opacity 0.4s, top 0.4s;
   -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
   box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
@@ -59,7 +58,6 @@ nav{
 
 .small-input {
   width: 40px;
-  margin-left: 50px;
 }  
 
 .ham {
@@ -267,6 +265,72 @@ nav{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.add-char-name {
+  margin-right: 42px;
+  margin-left: 15px;
+}
+
+.add-char-race {
+  margin-right: 51px;
+  margin-left: 15px;
+}
+
+.add-char-class-span {
+  margin-right: 49px;
+  margin-left: 15px;
+}
+
+.add-char-class {
+  margin-right: 22px;
+}
+
+.add-char-background {
+  margin-right: 15px;
+}
+
+.add-char-ac {
+  margin-left: 25px;
+  margin-right: 92px;
+}
+
+.add-char-max-hp {
+  margin-left: 12px;
+  margin-right: 70px;
+}
+
+.add-char-hit {
+  margin-right: 42px;
+}
+
+.add-char-init {
+  margin-left: 12px;
+  margin-right: 64px;
+}
+
+.add-char-speed {
+  margin-left: 12px;
+  margin-right: 78px;
+}
+
+.add-char-pi {
+  margin-left: 12px;
+  margin-right: 20px;
+}
+
+.add-char-pp {
+  margin-right: 5px;
+}
+
+.add-char-insp {
+  margin-left: 12px;
+  margin-right: 47px;
+}
+
+.add-char-prof {
+  margin-left: 12px;
+  margin-right: 45px;
 }
 
 
