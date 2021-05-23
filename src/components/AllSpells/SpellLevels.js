@@ -30,14 +30,21 @@ class SpellLevels extends Component {
       
     const mappedSpells = this.state.spells.map((ele,i) => (
       <section key={ele.index}>
-        <section>
-          <Link to={`/individualspell/${ele.index}`}>{ele.name}</Link>        
+        <section className='individual-spell-links'>
+          <div>
+            <Link className='spell-links' to={`/individualspell/${ele.index}`}>{ele.name}</Link>        
+          </div>
         </section>
       </section>
     ))
 
     return (
       <div>
+
+          <div className='back-nav'>
+            <span className='back' onClick={() => this.props.history.goBack()}>{'<< Back'}</span>
+          </div>
+
         {mappedSpells}
       </div>
       
