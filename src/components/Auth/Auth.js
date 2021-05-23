@@ -34,15 +34,20 @@ class Auth extends Component {
     await axios.post('/auth/register', {username:username,password:password,email:email})
 
     .then( async (res) => {
-      await axios.post('/auth/emailthanks',{email:email})
-      .then((res)=>{
-        this.props.updateUser(res.data)
-        this.props.history.push('/allcharacters')
-      })
-      .catch(err=>{
-        console.log(err)
-        this.setState({errorMsg:'Incorrect email'})
-      })
+      axios.post('/auth/emailthanks',{email:email})
+        .then(async (res)=>{
+          console.log('Email sent');
+        })
+        .catch(err=>{
+          console.log(err)
+          this.setState({errorMsg:'Incorrect email'})
+        })
+        
+      await this.props.updateUser(res.data)
+      alert('User Registered!')
+      await this.props.history.push(`/allcharacters`)
+
+
     })
     
     .catch(err => {
@@ -77,6 +82,8 @@ class Auth extends Component {
   }
 
   render(){
+
+    console.log(this.props)
 
     return (
       <div className='auth'>
