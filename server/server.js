@@ -79,12 +79,9 @@ app.put( '/journal/npc', npcCtrl.editNPC )
 app.delete( '/journal/npc', npcCtrl.deleteNPC )
 
 //Spell endpoints
-app.get( '/api/spell', spellsCtrl.getSpell )
+app.get( '/api/spell/:char_id', spellsCtrl.getSpell )
 app.post( '/api/spell', spellsCtrl.addSpell )
-app.put( '/api/spell', spellsCtrl.editSpell )
-app.delete( '/api/spell', spellsCtrl.deleteSpell )
-
-
+app.delete( '/api/spell/:spellbook_id', spellsCtrl.deleteSpell )
 
 //-------------------------------------------
 

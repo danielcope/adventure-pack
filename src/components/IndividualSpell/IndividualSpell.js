@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBook } from '@fortawesome/free-solid-svg-icons'
 
 import './IndividualSpell.css'
 
@@ -10,7 +14,9 @@ class IndividualSpell extends Component {
       spell: {},
       mappedDesc:[],
       mappedClasses: [],
-      mappedComponents: []
+      mappedComponents: [],
+      spellSchool: '',
+      mappedChar: []
     }
   }
 
@@ -21,6 +27,12 @@ class IndividualSpell extends Component {
       await this.mapDesc()
       await this.mapClasses()
       await this.mapComp()
+      await this.storeSchool()
+      await this.mapChar()
+
+      if (this.state.spell.higher_level) {
+        this.mapHigherLvl()
+      }
     })
     .catch(err=>console.log(err))
   }
@@ -33,19 +45,46 @@ class IndividualSpell extends Component {
 
   mapClasses = () => {
     this.setState({mappedClasses:this.state.spell.classes.map((ele,i)=>(
-      <section>{ele.name}</section>
+      <section key={ele.name}>{ele.name}</section>
     ))})
   }
 
   mapComp = () => {
     this.setState({mappedComponents:this.state.spell.components.map((ele,i)=>(
-      <span>{ele}</span>
+      <span key={ele}>{ele}</span>
     ))})
   }
 
-  render () {
+  storeSchool = () => {
+    this.setState({spellSchool:this.state.spell.school.name})
+  }
 
-    console.log(this.state)
+  mapHigherLvl = () => {
+    this.setState({mappedHigherLvl:this.state.spell.higher_level.map((ele,i)=>(
+      <span key={ele}>{ele}</span>
+    ))})
+  }
+
+  mapChar = () => {
+    this.setState({mappedChar:this.props.charReducer.character.map((ele,i)=>(
+      <section className='mapped-char-names' key={ele.char_id}>
+        <span className='text'>{ele.name}</span>
+        <button className='text add-to-spellbook' onClick={()=>this.learnSpell(ele.char_id,ele.name)}>Add to spellbook</button>
+        <Link to={`/spellbook/${ele.char_id}`}><FontAwesomeIcon icon={faBook}/></Link>
+      </section>
+    ))})
+  }
+
+  learnSpell = async (char_id,char_name) => {
+    const spell_name = this.state.spell.name
+    const spell_index = this.state.spell.index
+
+    await axios.post('/api/spell', {char_id:char_id,spell_name:spell_name,spell_index:spell_index})
+    .then(res=>alert(`Spell added to ${char_name}'s spellbook!`))
+    .catch(err=>console.log(err))
+  }
+
+  render () {
 
     return (
       <div className='individual-spell-view'>
@@ -98,18 +137,19 @@ class IndividualSpell extends Component {
 
         <div className='spell-info'>
           <section className='some-spell-info'>
-            <span className='text'>Level {this.state.spell.level}</span>
-            <span className='text'>Casting time: {this.state.spell.casting_time}</span>
-            <span className='text'>Range: {this.state.spell.range}</span>
-            <span className='text'>Duration: {this.state.spell.duration}</span>
+            <span className='text bold'>Level {this.state.spell.level}</span>
+            <span className='text'><span className='bold'>Casting time:</span> {this.state.spell.casting_time}</span>
+            <span className='text'><span className='bold'>School:</span> {this.state.spellSchool}</span>
+            <span className='text'><span className='bold'>Range:</span> {this.state.spell.range}</span>
+            <span className='text'><span className='bold'>Duration:</span> {this.state.spell.duration}</span>
             <section className='spell-classes text'>
-              <span className='classes-section text'>Classes</span>
+              <span className='classes-section text bold'>Classes</span>
               <span className='spell-classes-mapped text'>{this.state.mappedClasses} </span>
             </section>
           </section>
 
           <section className='component-container'>
-            <h3 className='component-head text'>Components</h3>
+            <h3 className='component-head header text bold'>Components</h3>
             <section className='component-list text'>
               {this.state.mappedComponents}
             </section>
@@ -117,23 +157,48 @@ class IndividualSpell extends Component {
 
         </div>
 
+        {this.state.spell.material ? 
+          <section className='material-info text'>
+            <h3 className='material-head header text bold'>Material Components</h3>
+            {this.state.spell.material}
+          </section>
+        : <span></span>
+        }
 
         {this.state.spell.dc ? 
           <section className='dc-info'>
-            <section>{this.state.spell.dc.dc_type.name} Saving Throw &#9860; &#x2684; 
+            <section className='text bold'>{this.state.spell.dc.dc_type.name} Saving Throw &#9860; &#x2684; 
             </section> 
           </section>
-        :<span></span>
+        : <span></span>
         }
 
-
-
-        <section className='spell-desc text'>{this.state.mappedDesc}</section>
+        <section className='spell-desc text'>
+          <span className='text bold header'>Spell Description</span>
+          {this.state.mappedDesc}
+        </section>
         
+        {this.state.spell.higher_level ? 
+          <section className='higher-level-info text'>
+            <span className='text bold header'>Higher Level</span>
+            {this.state.mappedHigherLvl}</section>
+          : <span></span>
+        }
+
+        <section className='learn-spell-section'>
+          <span className='text bold header'>Add to spellbook</span>
+          <div>
+            {this.state.mappedChar}
+          </div>
+          
+
+        </section>
 
       </div>
   )
   }
 }
 
-export default IndividualSpell
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps) (IndividualSpell)

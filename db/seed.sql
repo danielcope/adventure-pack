@@ -54,6 +54,11 @@ CREATE TABLE npc (
   description varchar(1000)
 );
 
-
+CREATE TABLE spellbook (
+  spellbook_id SERIAL PRIMARY key,
+  char_id INTEGER references character(char_id),
+  spell_name varchar(255),
+  spell_index varchar(255)
+);
 
 
