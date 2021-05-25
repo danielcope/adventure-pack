@@ -260,10 +260,22 @@
   margin: 5px;
   display: flex;
   justify-content: space-between;
-  height: 30px;
+  height: 40px;
 }
 
 .add-to-spellbook:hover {
   border-color: grey;
   background: #DA635D;
+}
+
+.spellbook-small {
+  color: #4E4E56;
+  font-size: 32px;
+  position: relative;
+  bottom: 3px;
+}
+
+.spellbook-small:hover {
+  color: #DA635D;
+  cursor: pointer;
 }

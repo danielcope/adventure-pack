@@ -39,7 +39,7 @@ class IndividualSpell extends Component {
 
   mapDesc = () => {
     this.setState({mappedDesc:this.state.spell.desc.map((ele,i)=>(
-      <section>{ele}</section>
+      <section key={ele}>{ele}</section>
     ))})
   }
 
@@ -70,7 +70,7 @@ class IndividualSpell extends Component {
       <section className='mapped-char-names' key={ele.char_id}>
         <span className='text'>{ele.name}</span>
         <button className='text add-to-spellbook' onClick={()=>this.learnSpell(ele.char_id,ele.name)}>Add to spellbook</button>
-        <Link to={`/spellbook/${ele.char_id}`}><FontAwesomeIcon icon={faBook}/></Link>
+        <Link to={`/spellbook/${ele.char_id}`} className='spellbook-small' ><FontAwesomeIcon icon={faBook}/></Link>
       </section>
     ))})
   }

@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import SpellBookNav from './SpellBookNav'
 
 class SpellBook extends Component {
   constructor (){
     super();
     this.state = {
       spells: []
-}
-}
+    
+    }
+  }
 
   componentDidMount = async () => {
     await this.getSpellbook()
@@ -27,7 +29,6 @@ class SpellBook extends Component {
   unlearnSpell = async (spellbook_id) => {
     await axios.delete(`/api/spell/${spellbook_id}`)
     .then(async res =>{
-      alert('Spell removed!')
       await this.getSpellbook()
     })  
     .catch(err=>console.log(err))
@@ -49,6 +50,11 @@ class SpellBook extends Component {
 
     return (
       <section>
+        <SpellBookNav id={this.props.match.params.id} />
+
+
+
+
         {mappedSpells}
       </section>
     )
