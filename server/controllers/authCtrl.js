@@ -25,6 +25,10 @@ module.exports = {
     const db = req.app.get('db');
     const { username, password } = req.body;
 
+    if (!username) {
+      return res.status(404).send('Please enter a valid username and password')
+    }
+  
     const [ existingUser ] = await db.auth.get_user_by_username(username);
 
     if (!existingUser) {

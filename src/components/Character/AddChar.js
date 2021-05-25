@@ -74,66 +74,66 @@ class AddChar extends Component {
       <div className='add-char' >
         <div className='add-char-button'>
           { !this.state.menu ? 
-          <span className='add' onClick={this.flipAddMenu}>Add New Char &#43;</span>
-          : <span className='add' onClick={this.flipAddMenu}>Close X</span>
+          <span className='add text' onClick={this.flipAddMenu}>Add New Char &#43;</span>
+          : <span className='add text' onClick={this.flipAddMenu}>Close X</span>
           }
         </div>
 
         <section className={ this.state.menu ? 'add-form-opened' : 'add-form-closed'}>
           <div>
-            <span className='add-char-name'>Name:</span>
-            <input className='long-input' onChange={e => this.handleNameChange(e.target.value)}/>
+            <span className='add-char-name text'>Name:</span>
+            <input className='long-input text' onChange={e => this.handleNameChange(e.target.value)}/>
           </div>
           <div>
-            <span className='add-char-race'>Race:</span>
+            <span className='add-char-race text'>Race:</span>
             <input onChange={e => this.handleRaceChange(e.target.value)}/>
           </div>
           <div>
-            <span className='add-char-class-span'>Class:</span>
+            <span className='add-char-class-span text'>Class:</span>
             <input onChange={e => this.handleClassChange(e.target.value)} />
           </div>
           <div>
-            <span className='add-char-background'>Background:</span>
+            <span className='add-char-background text'>Background:</span>
             <input onChange={e => this.handleBackgroundChange(e.target.value)} />
           </div>
           <div>
-            <span className='add-char-ac'>AC:</span>
+            <span className='add-char-ac text'>AC:</span>
             <input onChange={e => this.handleAcChange(e.target.value)} className='small-input'/>
           </div>
           <div>
-            <span className='add-char-max-hp'>Max Hp:</span>
+            <span className='add-char-max-hp text'>Max Hp:</span>
             <input onChange={e => this.handleMaxHpChange(e.target.value)} className='small-input' />
           </div>
           <div>
-            <span className='add-char-hit'>Total Hit Dice:</span>
+            <span className='add-char-hit text'>Total Hit Dice:</span>
             <input onChange={e => this.handleMaxHitDiceChange(e.target.value)} className='small-input'/>
           </div>
           <div>
-            <span className='add-char-init'>Initiative:</span>
+            <span className='add-char-init text'>Initiative:</span>
             <input onChange={e => this.handleInitiativeChange(e.target.value)} className='small-input'/>
           </div>
           <div>
-            <span className='add-char-speed'>Speed:</span>
+            <span className='add-char-speed text'>Speed:</span>
             <input onChange={e => this.handleSpeedChange(e.target.value)} className='small-input' />
           </div>
           <div>
-            <span className='add-char-pi'>Passive Insight:</span>
+            <span className='add-char-pi text'>Passive Insight:</span>
             <input onChange={e=>this.handlePassiveInsightChange(e.target.value)} className='small-input'/>
           </div>
           <div>
-            <span className='add-char-pp'>Passive Perception:</span>
+            <span className='add-char-pp text'>Passive Perception:</span>
             <input onChange={e=>this.handlePassivePerceptionChange(e.target.value)} className='small-input' />
           </div>
           <div>
-            <span className='add-char-insp'>Inspiration:</span>
+            <span className='add-char-insp text'>Inspiration:</span>
             <input onChange={e=>this.handleInspirationChange(e.target.value)} className='small-input' />
           </div>
           <div>
-            <span className='add-char-prof'>Proficiency:</span>
+            <span className='add-char-prof text'>Proficiency:</span>
             <input onChange={e=>this.handleProficiencyChange(e.target.value)} className='small-input' />
           </div>
 
-          <button onClick={this.addChar}>Add Character</button>
+          <button onClick={this.addChar} className='text'>Add Character</button>
 
         </section>
       </div>

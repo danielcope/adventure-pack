@@ -48,7 +48,7 @@ class Character extends Component {
     const mappedCharArr = this.props.charReducer.character.map((ele,i) => (
       <section key={ele.char_id} className='char-container'>
         <section className='name-trash-container'>
-          <h2 className='name-text'>{ele.name}</h2>
+          <h2 className='name-text text'>{ele.name}</h2>
           <div className="icon-trash" onClick={() => this.deleteChar(ele.char_id)}>
             <div className="trash-lid"></div>
             <div className="trash-container"></div>
@@ -59,14 +59,14 @@ class Character extends Component {
         </section>
 
         <section className='char-options'>
-          <Link className='option' to={`/individualcharacter/${ele.char_id}`}>Stats
+          <Link className='option text' to={`/individualcharacter/${ele.char_id}`}>Stats
            <FontAwesomeIcon icon={faScroll} className='scroll'/>
            
           </Link>
-          <Link className='option' to={`/backpack/${ele.char_id}`}>Backpack
+          <Link className='option text' to={`/backpack/${ele.char_id}`}>Backpack
             <img className='backpack' alt='backpack' src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ChYOrd3pfTtG7_pUSzzC7y9sFu8Pb6KRog&usqp=CAU"} />
           </Link>
-          <Link className='option'>Spells <FontAwesomeIcon icon={faBook} className='spellbook' /> </Link>
+          <Link className='option text'>Spells <FontAwesomeIcon icon={faBook} className='spellbook' /> </Link>
         </section>
 
       </section>

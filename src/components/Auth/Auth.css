@@ -2,6 +2,8 @@
   height: 10px;
   padding: 15px;
   font-size: 20px;
+  border-radius: 5px;
+  border: #DA635D solid 1px;
 }
 
 .auth-opened {
@@ -51,16 +53,32 @@
   font-size: 24px;
   padding: 10px;
   background-color: #4E4E56;
-  border: 1px solid #4E4E56; 
+  border: 1px solid #DA635D; 
   color: #DCD0C0;
+  width: 115px;
 }
 
 .register-button {
   font-size: 24px;
   padding: 10px;
   background-color: #4E4E56;
-  border: 1px solid #4E4E56; 
+  border: 1px solid #DA635D; 
   color: #DCD0C0;
+  width: 115px;
+}
+
+.login-button:hover, .register-button:hover {
+  background: #DA635D;
+  border: #DCD0C0 solid 1px;
+}
+
+.auth-error-msg {
+  max-width: 250px;
+  text-align: center;
+}
+
+.auth-box {
+  margin-bottom: 10px;
 }
 
 @media (min-width:600px) {

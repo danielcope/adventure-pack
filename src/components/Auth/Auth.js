@@ -46,8 +46,6 @@ class Auth extends Component {
       await this.props.updateUser(res.data)
       alert('User Registered!')
       await this.props.history.push(`/allcharacters`)
-
-
     })
     
     .catch(err => {
@@ -68,7 +66,7 @@ class Auth extends Component {
 
     .catch(err => {
       console.log(err)
-      this.setState({errorMsg: 'Incorrect username or password'})
+      this.setState({errorMsg: 'Please enter a valid username and password'})
     })
   }
 
@@ -83,27 +81,27 @@ class Auth extends Component {
 
   render(){
 
-    console.log(this.props)
-
     return (
       <div className='auth'>
         <section className='auth-container'>
-          <div>
-            <input className='auth-input-box' value={this.state.username} placeholder='username' onChange={e => this.handleUsernameChange(e.target.value)} />
-          </div>
-          <div>
-            <input className='auth-input-box' value={this.state.email} placeholder='email' onChange={e => this.handleEmailChange(e.target.value)} />
-          </div>
-          <div>
-            <input className='auth-input-box' value={this.state.password} type='password' placeholder='password' onChange={e => this.handlePasswordChange(e.target.value)} />
-          </div>
-          <section className='auth-button-container'>
-            <button className='login-button' onClick={this.login}>Login</button>
-            <button className='register-button' onClick={this.register}>Register</button>
-          </section>
+          <form>
+            <div className='auth-box'>
+              <input className='auth-input-box text' value={this.state.username} placeholder='username' required onChange={e => this.handleUsernameChange(e.target.value)} />
+            </div>
+            <div className='auth-box'>
+              <input className='auth-input-box text' value={this.state.email} placeholder='email' onChange={e => this.handleEmailChange(e.target.value)} />
+            </div>
+            <div className='auth-box'>
+              <input className='auth-input-box text' value={this.state.password} type='password' placeholder='password' required onChange={e => this.handlePasswordChange(e.target.value)} />
+            </div>
+            <section className='auth-button-container'>
+              <button className='login-button text' onClick={this.login}>Login</button>
+              <button className='register-button text' onClick={this.register}>Register</button>
+            </section>
+          </form>
         </section>
-        {this.state.errorMsg && <h3 className='auth-error-msg'>
-          {this.state.errorMsg} <span className='close-err' onClick={this.closeErrorMsg}>X</span></h3>}
+        {this.state.errorMsg && <h3 className='auth-error-msg text'>
+          {this.state.errorMsg} <span className='close-err text' onClick={this.closeErrorMsg}>X</span></h3>}
       </div>
     )
   }

@@ -32,7 +32,7 @@ class SpellLevels extends Component {
       <section key={ele.index}>
         <section className='individual-spell-links'>
           <div>
-            <Link className='spell-links' to={`/individualspell/${ele.index}`}>{ele.name}</Link>        
+            <Link className='spell-links text' to={`/individualspell/${ele.index}`}>{ele.name}</Link>        
           </div>
         </section>
       </section>
@@ -42,7 +42,7 @@ class SpellLevels extends Component {
       <div>
 
           <div className='back-nav'>
-            <span className='back' onClick={() => this.props.history.goBack()}>{'<< Back'}</span>
+            <span className='back text' onClick={() => this.props.history.goBack()}>{'<< Back'}</span>
           </div>
 
         {mappedSpells}

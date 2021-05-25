@@ -16,10 +16,10 @@ const CharNav = (props) => {
 
         <section className={ menu ? 'char-nav-opened' : 'char-nav-closed'}>
           <div>
-            <Link className='light-text' to='/allspells'>Spells</Link> 
+            <Link className='light-text text' to='/allspells'>Spells</Link> 
           </div>
           <div>
-            <Link className='light-text' to='/' onClick={() => {
+            <Link className='light-text text' to='/' onClick={() => {
               props.clearChar()
               props.logout()
             }}>Logout</Link>

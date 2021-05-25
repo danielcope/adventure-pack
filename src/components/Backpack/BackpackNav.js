@@ -14,12 +14,12 @@ const BackpackNav = (props) => {
         
         <span className='ham' onClick={() => flipMenu(!menu)} >&equiv;</span>
 
-        <div className={ menu ? 'individual-char-nav-opened' : 'individual-char-nav-closed'}>
-          <Link className='light-text' to='/allcharacters'>All Characters</Link>
+        <div className={ menu ? 'individual-char-nav-opened text' : 'individual-char-nav-closed text'}>
+          <Link className='light-text text' to='/allcharacters'>All Characters</Link>
           {/* <Link className='light-text' to='/allspells'>All Spells</Link> */}
-          <Link className='light-text' to={`/individualcharacter/${props.id}`}>My Stats</Link>
+          <Link className='light-text text' to={`/individualcharacter/${props.id}`}>My Stats</Link>
           {/* <Link className='light-text' to={`/spellbook/${props.id}`}>My Spells</Link> */}
-          <Link className='light-text' to='/' onClick={()=>{
+          <Link className='light-text text' to='/' onClick={()=>{
             props.logout()
             props.clearChar()
             }} >Logout</Link>

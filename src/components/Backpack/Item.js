@@ -70,12 +70,12 @@ class Item extends Component {
         <div className='container-item'>
           { this.state.editName ?
           <div className='input-block'>
-            <input onChange={e=>this.handleNameInput(e.target.value)} className='new-name-input' placeholder={this.state.item.item_name} />
-            <button className='save-button' onClick={() => this.editName()}>Save</button>
-            <button className='cancel-button' onClick={() => this.flipName()}>Cancel</button>
+            <input onChange={e=>this.handleNameInput(e.target.value)} className='new-name-input text' placeholder={this.state.item.item_name} />
+            <button className='save-button text' onClick={() => this.editName()}>Save</button>
+            <button className='cancel-button text' onClick={() => this.flipName()}>Cancel</button>
           </div>
           :
-          <div className='name-item'>
+          <div className='name-item text'>
             <span  onClick={() => this.flipName()}>{this.state.item.item_name}</span>
           </div>
           }
@@ -83,10 +83,10 @@ class Item extends Component {
           { this.state.editDesc ? 
           <div className='desc-input-block'>
             <div className='desc-button'>
-              <button className='save-button' onClick={()=>this.editDesc()}>Save</button>
-              <button className='cancel-button' onClick={() => this.flipDesc()}>Cancel</button>
+              <button className='save-button text' onClick={()=>this.editDesc()}>Save</button>
+              <button className='cancel-button text' onClick={() => this.flipDesc()}>Cancel</button>
             </div>
-            <input className='desc-input' placeholder={this.state.item.item_desc} onChange={e=>this.handleDescInput(e.target.value)} />
+            <input className='desc-input text' placeholder={this.state.item.item_desc} onChange={e=>this.handleDescInput(e.target.value)} />
           </div>
           :
 
