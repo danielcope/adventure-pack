@@ -54,7 +54,7 @@ class SpellBook extends Component {
   }
 
   getSpellbook = async () => {
-    const char_id = this.props.match.params.id
+    const char_id = pasreInt(this.props.match.params.id)
     
     await axios.get(`/api/spell/${char_id}`)
     .then( async res=>{
