@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import SpellBookNav from './SpellBookNav'
 
 import './SpellBook.css'
+import { connect } from 'react-redux';
 
 class SpellBook extends Component {
   constructor (){
@@ -29,23 +30,47 @@ class SpellBook extends Component {
       mappedSixSpells: [],
       mappedSevenSpells: [],
       mappedEightSpells: [],
-      mappedNineSpells: []
+      mappedNineSpells: [],
+      charName: ''
     }
   }
 
   componentDidMount = async () => {
+    await this.storeCharName()
     await this.getSpellbook()
-    await this.orderSpells()
-    await this.mapZero()
-    await this.mapSix()
+  }
+  
+  storeCharName = () => {
+    let name = ''
+    
+    for(let i = 0; i < this.props.charReducer.character.length; i++){
+      if(this.props.charReducer.character[i].char_id === parseInt(this.props.match.params.id)) {
+        name = this.props.charReducer.character[i].name
+      }
+    }
+    
+    this.setState({charName:name})
+    
   }
 
   getSpellbook = async () => {
     const char_id = this.props.match.params.id
-
+    
     await axios.get(`/api/spell/${char_id}`)
-    .then(res=>{
-      this.setState({spells:res.data})
+    .then( async res=>{
+      await this.setState({spells:res.data})
+      await this.orderSpells()
+      await this.mapZero()
+      await this.mapOne()
+      await this.mapTwo()
+      await this.mapThree()
+      await this.mapFour()
+      await this.mapFive()
+      await this.mapSix()
+      await this.mapSeven()
+      await this.mapEight()
+      await this.mapNine()
+      
     })
     .catch(err=>console.log(err))
   } 
@@ -111,61 +136,145 @@ class SpellBook extends Component {
   unlearnSpell = async (spellbook_id) => {
     await axios.delete(`/api/spell/${spellbook_id}`)
     .then(async res =>{
-      await this.getSpellbook()
+      alert('Spell was removed')
     })  
     .catch(err=>console.log(err))
+    
+    await this.getSpellbook()
   }
 
   mapZero = () => {
     this.setState({mappedZeroSpells:this.state.zeroSpells.map((ele,i)=>(
-      <section key={ele.spell_name}>{ele.spell_name}</section>
-    ))})
-  }
-
-  mapOne = () => {}
-  mapTwo = () => {}
-  mapThree = () => {}
-  mapFour = () => {}
-  mapFive = () => {}
-  mapSix = () => {
-    this.setState({mappedSixSpells:this.state.sixSpells.map((ele,i)=>(
-      <section className='text' key={ele.spell_name}>
+      <section className='text listed-spell' key={ele.spell_name}>
         <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
         <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
     ))})
   }
-  mapSeven = () => {}
-  mapEight = () => {}
-  mapNine = () => {}
+
+  mapOne = () => {
+    this.setState({mappedOneSpells:this.state.oneSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
+    ))})
+  }
+
+  mapTwo = () => {
+    this.setState({mappedTwoSpells:this.state.twoSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
+    ))})
+  }
+
+  mapThree = () => {
+    this.setState({mappedThreeSpells:this.state.threeSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
+    ))})
+  }
+
+  mapFour = () => {
+    this.setState({mappedFourSpells:this.state.fourSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
+    ))})
+  }
+
+  mapFive = () => {
+    this.setState({mappedFiveSpells:this.state.fiveSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
+    ))})
+  }
+
+  mapSix = () => {
+    this.setState({mappedSixSpells:this.state.sixSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
+    ))})
+  }
+
+  mapSeven = () => {
+    this.setState({mappedSevenSpells:this.state.sevenSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
+    ))})
+  }
+
+  mapEight = () => {
+    this.setState({mappedEightSpells:this.state.eightSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        
+      </section>
+    ))})
+  }
+
+  mapNine = () => {
+    this.setState({mappedNineSpells:this.state.nineSpells.map((ele,i)=>(
+      <section className='text listed-spell' key={ele.spell_name}>
+        <button onClick={()=>this.unlearnSpell(ele.spellbook_id)}>X</button>
+        <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>        </section>
+    ))})
+  }
 
   render(){
     
     console.log(this.props)
     console.log(this.state)
 
-
-    // const mappedSpells = this.state.spells.map((ele,i) => (
-    //   <section key={ele.spellbook_id} >
-    //     
-    //     <Link to={`/individualspell/${ele.spell_index}`} className='learned-spell text' >{ele.spell_name}</Link>
-    //   </section>
-    // ))
-
-
     return (
       <section className='spellbook-view'>
         <SpellBookNav id={this.props.match.params.id} />
 
-        {/* <section className='mapped-spells-container'>
-          {mappedSpells}
-        </section> */}
+        <h2>{this.state.charName}'s Spellbook</h2>
 
-        <section>
-          {this.state.mappedZeroSpells}
-        </section>
 
         <section className='mapped-spells-container'>
+            <span className='text header'>Cantrips</span>
+            {this.state.mappedZeroSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 1</span>
+          {this.state.mappedOneSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 2</span>
+          {this.state.mappedTwoSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 3</span>
+          {this.state.mappedThreeSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 4</span>
+          {this.state.mappedFourSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 5</span>
+          {this.state.mappedFiveSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 6</span>
           {this.state.mappedSixSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 7</span>
+          {this.state.mappedSevenSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 8</span>
+          {this.state.mappedEightSpells}
+        </section>
+        <section className='mapped-spells-container'>
+            <span className='text header'>Level 9</span>
+          {this.state.mappedNineSpells}
         </section>
 
       </section>
@@ -173,4 +282,6 @@ class SpellBook extends Component {
   }
 }
 
-export default SpellBook
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps) (SpellBook)

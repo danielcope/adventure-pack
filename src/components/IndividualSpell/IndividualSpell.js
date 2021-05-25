@@ -98,20 +98,21 @@ class IndividualSpell extends Component {
 
 
         <div>
-          <h2 className='spell-name-bar text'>{this.state.spell.name + ' '} 
-            {this.state.spell.damage && this.state.spell.damage.damage_type.name === 'Fire' ? <span className='damage-type-symbol'>&#128293;
+          <h2 className='spell-name-bar text'>
+            {this.state.spell.name + ' '} 
+            {this.state.spell.damage && this.state.spell.damage.damage_name && this.state.spell.damage.damage_type.name === 'Fire' ? <span className='damage-type-symbol'>&#128293;
             </span> : <span></span>}
-            {this.state.spell.damage && this.state.spell.damage.damage_type.name === 'Acid' ? <span className='damage-type-symbol'>&#9763;
+            {this.state.spell.damage && this.state.spell.damage.damage_name && this.state.spell.damage.damage_type.name === 'Acid' ? <span className='damage-type-symbol'>&#9763;
             </span> : <span></span>}
-            {this.state.spell.damage && this.state.spell.damage.damage_type.name === 'Poison' ? <span className='damage-type-symbol'>&#9760;
+            {this.state.spell.damage && this.state.spell.damage.damage_name && this.state.spell.damage.damage_type.name === 'Poison' ? <span className='damage-type-symbol'>&#9760;
             </span> : <span></span>}
-            {this.state.spell.damage && this.state.spell.damage.damage_type.name === 'Cold' ? <span className='damage-type-symbol'>&#10052;
+            {this.state.spell.damage && this.state.spell.damage.damage_name && this.state.spell.damage.damage_type.name === 'Cold' ? <span className='damage-type-symbol'>&#10052;
             </span> : <span></span>}
-            {this.state.spell.damage && this.state.spell.damage.damage_type.name === 'Psychic' ? <span className='damage-type-symbol'>&#128065;
+            {this.state.spell.damage && this.state.spell.damage.damage_name && this.state.spell.damage.damage_type.name === 'Psychic' ? <span className='damage-type-symbol'>&#128065;
             </span> : <span></span>}
-            {this.state.spell.damage && this.state.spell.damage.damage_type.name === 'Radiant' ? <span className='damage-type-symbol'>&#9765;
+            {this.state.spell.damage && this.state.spell.damage.damage_name && this.state.spell.damage.damage_type.name === 'Radiant' ? <span className='damage-type-symbol'>&#9765;
             </span> : <span></span>}
-            {this.state.spell.damage && this.state.spell.damage.damage_type.name === 'Lightning' ? <span className='damage-type-symbol'>&#9889;	
+            {this.state.spell.damage && this.state.spell.damage.damage_name && this.state.spell.damage.damage_type.name === 'Lightning' ? <span className='damage-type-symbol'>&#9889;	
             </span> : <span></span>}
               {this.state.spell.concentration ? 
             <div className='con-border-yes'>
