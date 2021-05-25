@@ -12,7 +12,7 @@ const Landing = (props) => {
     return (
       <div className='landing-view'>
 
-        <section className='landing-login'>
+        <section className='landing-login text'>
           <span  onClick={() => flipMenu(!menu)}>Login &equiv;</span>
         </section>
 
@@ -20,7 +20,7 @@ const Landing = (props) => {
           <Auth history={props.history}/>
         </section>
 
-        <span className='landing-greeting'>Adventure is out there!</span>
+        <span className='landing-greeting text'>Adventure is out there!</span>
 
       </div>
 

@@ -9,7 +9,8 @@ class IndividualSpell extends Component {
     this.state = {
       spell: {},
       mappedDesc:[],
-      mappedClasses: []
+      mappedClasses: [],
+      mappedComponents: []
     }
   }
 
@@ -19,6 +20,7 @@ class IndividualSpell extends Component {
       await this.setState({spell:res.data})
       await this.mapDesc()
       await this.mapClasses()
+      await this.mapComp()
     })
     .catch(err=>console.log(err))
   }
@@ -35,10 +37,16 @@ class IndividualSpell extends Component {
     ))})
   }
 
+  mapComp = () => {
+    this.setState({mappedComponents:this.state.spell.components.map((ele,i)=>(
+      <span>{ele}</span>
+    ))})
+  }
+
   render () {
 
     console.log(this.state)
-    
+
     return (
       <div className='individual-spell-view'>
 
@@ -89,15 +97,35 @@ class IndividualSpell extends Component {
 
 
         <div className='spell-info'>
-          <span className='text'>Level {this.state.spell.level}</span>
-          <span className='text'>Casting time: {this.state.spell.casting_time}</span>
-          <span className='text'>Range: {this.state.spell.range}</span>
-          <span className='text'>Duration: {this.state.spell.duration}</span>
-          <section className='spell-classes text'>
-            <span className='classes-section text'>Classes</span>
-            <span className='spell-classes-mapped text'>{this.state.mappedClasses} </span>
+          <section className='some-spell-info'>
+            <span className='text'>Level {this.state.spell.level}</span>
+            <span className='text'>Casting time: {this.state.spell.casting_time}</span>
+            <span className='text'>Range: {this.state.spell.range}</span>
+            <span className='text'>Duration: {this.state.spell.duration}</span>
+            <section className='spell-classes text'>
+              <span className='classes-section text'>Classes</span>
+              <span className='spell-classes-mapped text'>{this.state.mappedClasses} </span>
+            </section>
           </section>
+
+          <section className='component-container'>
+            <h3 className='component-head text'>Components</h3>
+            <section className='component-list text'>
+              {this.state.mappedComponents}
+            </section>
+          </section>
+
         </div>
+
+
+        {this.state.spell.dc ? 
+          <section className='dc-info'>
+            <section>{this.state.spell.dc.dc_type.name} Saving Throw &#9860; &#x2684; 
+            </section> 
+          </section>
+        :<span></span>
+        }
+
 
 
         <section className='spell-desc text'>{this.state.mappedDesc}</section>
