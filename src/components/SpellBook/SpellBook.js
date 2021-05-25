@@ -56,8 +56,9 @@ class SpellBook extends Component {
   getSpellbook = async () => {
     const char_id = parseInt(this.props.match.params.id)
     
-    await axios.get(`/api/spell/${char_id}`)
+    await axios.get(`/getspells/${char_id}`)
     .then( async res=>{
+      console.log(res)
       await this.setState({spells:res.data})
       await this.orderSpells()
       await this.mapZero()
