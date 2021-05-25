@@ -3,7 +3,8 @@ module.exports = {
   getSpell: async (req,res) => {
     const db = req.app.get('db')
     const { char_id } = req.params
-
+    console.log('hit')
+    
     const spells = await db.spell.get_char_spells(char_id);
 
     res.status(200).send(spells)
