@@ -36,7 +36,7 @@ class SpellBook extends Component {
   }
 
   componentDidMount = async () => {
-    await this.storeCharName()
+    this.storeCharName()
     await this.getSpellbook()
   }
   
@@ -59,18 +59,18 @@ class SpellBook extends Component {
     await axios.get(`/getspells/${char_id}`)
     .then( async res=>{
       console.log(res)
-      await this.setState({spells:res.data})
-      await this.orderSpells()
-      await this.mapZero()
-      await this.mapOne()
-      await this.mapTwo()
-      await this.mapThree()
-      await this.mapFour()
-      await this.mapFive()
-      await this.mapSix()
-      await this.mapSeven()
-      await this.mapEight()
-      await this.mapNine()
+      this.setState({ spells: res.data })
+      this.orderSpells()
+      this.mapZero()
+      this.mapOne()
+      this.mapTwo()
+      this.mapThree()
+      this.mapFour()
+      this.mapFive()
+      this.mapSix()
+      this.mapSeven()
+      this.mapEight()
+      this.mapNine()
       
     })
     .catch(err=>console.log(err))
