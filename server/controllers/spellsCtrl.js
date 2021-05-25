@@ -11,9 +11,9 @@ module.exports = {
 
   addSpell: async (req,res) => {
     const db = req.app.get('db');
-    const { char_id,spell_name,spell_index } = req.body;
+    const { char_id,spell_name,spell_index,spell_level } = req.body;
     
-    await db.spell.add_to_spellbook(char_id,spell_name,spell_index);
+    await db.spell.add_to_spellbook(char_id,spell_name,spell_index,spell_level);
 
     res.sendStatus(200)
   },

@@ -78,13 +78,16 @@ class IndividualSpell extends Component {
   learnSpell = async (char_id,char_name) => {
     const spell_name = this.state.spell.name
     const spell_index = this.state.spell.index
+    const spell_level = this.state.spell.level
 
-    await axios.post('/api/spell', {char_id:char_id,spell_name:spell_name,spell_index:spell_index})
+    await axios.post('/api/spell', {char_id:char_id,spell_name:spell_name,spell_index:spell_index,spell_level:spell_level})
     .then(res=>alert(`Spell added to ${char_name}'s spellbook!`))
     .catch(err=>console.log(err))
   }
 
   render () {
+
+    console.log(this.state)
 
     return (
       <div className='individual-spell-view'>

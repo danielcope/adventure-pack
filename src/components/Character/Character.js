@@ -6,7 +6,7 @@ import AddChar from './AddChar'
 import CharNav from './CharNav'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook,faScroll } from '@fortawesome/free-solid-svg-icons'
+import { faBook,faScroll, faBox } from '@fortawesome/free-solid-svg-icons'
 
 import '../trash.css'
 import './Character.css'
@@ -64,9 +64,9 @@ class Character extends Component {
            
           </Link>
           <Link className='option text' to={`/backpack/${ele.char_id}`}>Backpack
-            <img className='backpack' alt='backpack' src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ChYOrd3pfTtG7_pUSzzC7y9sFu8Pb6KRog&usqp=CAU"} />
+          <FontAwesomeIcon className='backpack' icon={faBox}/>
           </Link>
-          <Link className='option text'>Spells <FontAwesomeIcon icon={faBook} className='spellbook' /></Link>
+          <Link to={`spellbook/${ele.char_id}`} className='option text'>Spells <FontAwesomeIcon icon={faBook} className='spellbook' /></Link>
         </section>
 
       </section>

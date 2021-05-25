@@ -242,19 +242,22 @@ nav{
 }
 
 .backpack {
-  height: 70%;
-  max-height: 70%;
-  max-width: 75%;
+  color:#4E4E56;
+  font-size: 60px;
 }
 
 .spellbook {
-  color: grey;
+  color: #4E4E56;
   font-size: 60px;
 }
 
 .scroll {
-  color: black;
+  color: #4E4E56;
   font-size: 60px;
+}
+
+.scroll:hover, .spellbook:hover, .backpack:hover {
+  color:#DA635D;
 }
 
 .extra-info {
