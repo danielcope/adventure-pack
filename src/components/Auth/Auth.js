@@ -84,7 +84,7 @@ class Auth extends Component {
     return (
       <div className='auth'>
         <section className='auth-container'>
-          <form>
+          
             <div className='auth-box'>
               <input className='auth-input-box text' value={this.state.username} placeholder='username' required onChange={e => this.handleUsernameChange(e.target.value)} />
             </div>
@@ -98,7 +98,6 @@ class Auth extends Component {
               <button className='login-button text' onClick={this.login}>Login</button>
               <button className='register-button text' onClick={this.register}>Register</button>
             </section>
-          </form>
         </section>
         {this.state.errorMsg && <h3 className='auth-error-msg text'>
           {this.state.errorMsg} <span className='close-err text' onClick={this.closeErrorMsg}>X</span></h3>}
