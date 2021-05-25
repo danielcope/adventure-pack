@@ -87,8 +87,6 @@ class IndividualSpell extends Component {
 
   render () {
 
-    console.log(this.state)
-
     return (
       <div className='individual-spell-view'>
 
