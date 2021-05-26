@@ -38,3 +38,9 @@
   font-weight: bold;
   font-size: 32px;
 }
+
+@media (min-width: 700px) {
+  .char-nav-opened, .char-nav-closed {
+    width: 50%;
+  }
+}

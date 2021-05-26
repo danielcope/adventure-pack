@@ -80,61 +80,42 @@ class AddChar extends Component {
         </div>
 
         <section className={ this.state.menu ? 'add-form-opened' : 'add-form-closed'}>
-          <div>
+          <section className='form-container'>
+          <div className='form-column'>
             <span className='add-char-name text'>Name:</span>
-            <input className='long-input text' onChange={e => this.handleNameChange(e.target.value)}/>
-          </div>
-          <div>
             <span className='add-char-race text'>Race:</span>
-            <input onChange={e => this.handleRaceChange(e.target.value)}/>
-          </div>
-          <div>
             <span className='add-char-class-span text'>Class:</span>
-            <input onChange={e => this.handleClassChange(e.target.value)} />
-          </div>
-          <div>
             <span className='add-char-background text'>Background:</span>
-            <input onChange={e => this.handleBackgroundChange(e.target.value)} />
-          </div>
-          <div>
             <span className='add-char-ac text'>AC:</span>
-            <input onChange={e => this.handleAcChange(e.target.value)} className='small-input'/>
-          </div>
-          <div>
             <span className='add-char-max-hp text'>Max Hp:</span>
-            <input onChange={e => this.handleMaxHpChange(e.target.value)} className='small-input' />
-          </div>
-          <div>
             <span className='add-char-hit text'>Total Hit Dice:</span>
-            <input onChange={e => this.handleMaxHitDiceChange(e.target.value)} className='small-input'/>
-          </div>
-          <div>
             <span className='add-char-init text'>Initiative:</span>
-            <input onChange={e => this.handleInitiativeChange(e.target.value)} className='small-input'/>
-          </div>
-          <div>
             <span className='add-char-speed text'>Speed:</span>
-            <input onChange={e => this.handleSpeedChange(e.target.value)} className='small-input' />
-          </div>
-          <div>
             <span className='add-char-pi text'>Passive Insight:</span>
-            <input onChange={e=>this.handlePassiveInsightChange(e.target.value)} className='small-input'/>
-          </div>
-          <div>
             <span className='add-char-pp text'>Passive Perception:</span>
-            <input onChange={e=>this.handlePassivePerceptionChange(e.target.value)} className='small-input' />
-          </div>
-          <div>
             <span className='add-char-insp text'>Inspiration:</span>
-            <input onChange={e=>this.handleInspirationChange(e.target.value)} className='small-input' />
-          </div>
-          <div>
             <span className='add-char-prof text'>Proficiency:</span>
+          </div>
+          <div className='form-column'>
+            <input className='long-input text' onChange={e => this.handleNameChange(e.target.value)}/>
+            <input className='long-input text' onChange={e => this.handleRaceChange(e.target.value)}/>
+            <input className='long-input text' onChange={e => this.handleClassChange(e.target.value)} />
+            <input className='long-input text' onChange={e => this.handleBackgroundChange(e.target.value)} />
+            <input onChange={e => this.handleAcChange(e.target.value)} className='small-input'/>
+            <input onChange={e => this.handleMaxHpChange(e.target.value)} className='small-input' />
+            <input onChange={e => this.handleMaxHitDiceChange(e.target.value)} className='small-input'/>
+            <input onChange={e => this.handleInitiativeChange(e.target.value)} className='small-input'/>
+            <input onChange={e => this.handleSpeedChange(e.target.value)} className='small-input' />
+            <input onChange={e=>this.handlePassiveInsightChange(e.target.value)} className='small-input'/>
+            <input onChange={e=>this.handlePassivePerceptionChange(e.target.value)} className='small-input' />
+            <input onChange={e=>this.handleInspirationChange(e.target.value)} className='small-input' />
             <input onChange={e=>this.handleProficiencyChange(e.target.value)} className='small-input' />
           </div>
+          
 
+
+          </section>
           <button onClick={this.addChar} className='text'>Add Character</button>
-
         </section>
       </div>
     )

@@ -9,7 +9,7 @@ const SpellBookNav = (props) => {
   const [menu,flipMenu] = useState(false)
 
   return (
-    <div className='nav'>
+    <div className='nav spell-book-nav'>
       <span className='ham' onClick={() => flipMenu(!menu)}>&equiv;</span>
 
       <section className={ menu ? 'char-nav-opened' : 'char-nav-closed'}>

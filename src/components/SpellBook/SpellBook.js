@@ -232,9 +232,6 @@ class SpellBook extends Component {
 
   render(){
     
-    console.log(this.props)
-    console.log(this.state)
-
     return (
       <section className='spellbook-view'>
         <SpellBookNav id={this.props.match.params.id} />
