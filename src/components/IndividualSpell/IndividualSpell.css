@@ -1,5 +1,5 @@
 .individual-spell-view {
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .spell-info-components {
@@ -9,7 +9,7 @@
 .spell-info {
   display: flex;
   min-height: 20%;
-  width: 90%;
+  width: 85.5%;
   justify-content: space-between;
   align-content: center;
   box-shadow: 0px 5px 15px 5px #c7c7c7
@@ -19,6 +19,8 @@
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .some-spell-info {
@@ -27,12 +29,15 @@
 }
 
 .component-container {
-  width: 45%;
+  width: 35%;
+  margin: 20px;
 }
 
 .component-head {
   text-align: center;
   font-weight: normal;
+  border-bottom: #DA635D 1px solid;
+  font-size: 20px;
 }
 
 .component-list {

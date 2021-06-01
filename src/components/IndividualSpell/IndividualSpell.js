@@ -151,7 +151,7 @@ class IndividualSpell extends Component {
           </section>
 
           <section className='component-container'>
-            <h3 className='component-head header text bold'>Components</h3>
+            <h3 className='component-head text bold'>Components</h3>
             <section className='component-list text'>
               {this.state.mappedComponents}
             </section>
