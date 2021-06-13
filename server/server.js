@@ -10,7 +10,7 @@ const npcCtrl = require('./controllers/npcCtrl')
 const spellsCtrl = require('./controllers/spellsCtrl')
 const nodemailer = require('./controllers/nodemailer');
 const app = express();
-const { SERVER_PORT,CONNECTION_STRING,SESSION_SECRET,EMAIL_PASSWORD } = process.env;
+const { SERVER_PORT,CONNECTION_STRING,SESSION_SECRET } = process.env;
 
 app.use(express.json());
 

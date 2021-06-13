@@ -476,7 +476,7 @@ class IndividualCharacter extends Component {
                 <section>
                   <h4 className='text'>&#x2764; Health: </h4> 
                   <div className='current-max'>
-                    <span className='info-text text'> {current_hp}/</span>
+                    <span className='info-text text'> {`${current_hp} /`}</span>
                   { this.state.maxHealthEdit ? 
                     <div className='stat-edit-input text'>
                       <input className='stat-input-field-hp text' placeholder={initiative} onChange={e => this.handleMaxHealthChange(e.target.value)} />

@@ -72,14 +72,18 @@ class AddChar extends Component {
 
     return (
       <div className='add-char' >
-        <div className='add-char-button'>
-          { !this.state.menu ? 
-          <span className='add text' onClick={this.flipAddMenu}>Add New Char &#43;</span>
-          : <span className='add text' onClick={this.flipAddMenu}>Close X</span>
+
+        <div className='add-char-button-container'>
+          <div className='add-char-button'>
+            { !this.state.menu ? 
+            <span className='add text' onClick={this.flipAddMenu}>Add +</span>
+            : <span className='add text' onClick={this.flipAddMenu}>Close X</span>
           }
+          </div>
         </div>
 
         <section className={ this.state.menu ? 'add-form-opened' : 'add-form-closed'}>
+          <span className='header text add-form-header'>Add New Character</span>
           <section className='form-container'>
           <div className='form-column'>
             <span className='add-char-name text'>Name:</span>

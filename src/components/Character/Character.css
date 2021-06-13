@@ -17,33 +17,43 @@ nav{
   position: fixed;
 }
 
-.char-view {
-}
-
 .light-text {
   text-decoration: none;
   color: rgb(255, 242, 200);
 }  
 
 .char-container {
-  -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
-  box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
-  margin: 25px;
+  margin: 15px;
   padding: 5px;
-  width: 30px;
-  min-width: 300px;
+  min-width: 375px;
   background: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 2px  #b4b4b4;
 }  
 
+.my-characters-header {
+  min-width: 375px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 2px  #b4b4b4;
+  padding: 5px;
+  margin: 15px 20px 5px 20px;
+  font-size: 30px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .add-form-opened {
+  height: 450px;
   margin: 25px;
   padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   transition: opacity 0.4s, top 0.4s;
-  -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
-  box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 2px  #b4b4b4;
 }  
 
 .add-form-closed {
@@ -60,6 +70,7 @@ nav{
   justify-content: space-between;
   height: 90%;
   width: 75%;
+  margin: 15px 0px 15px 0px ;
 }
 
 .form-column {
@@ -114,15 +125,24 @@ nav{
   justify-content: space-between;
 }  
 
+.add-char-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .add-char-button {
-  height: 60%;
   text-align: center;
-  font-size: 30px;
-  border: 3px solid #DA635D;
+  font-size: 18px;
+  border: 1px solid #DA635D;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 20px;
+  width: 20%;
+  height: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px 2px  #b4b4b4;
+
 }
 
 .add-char-button:hover {
@@ -285,6 +305,7 @@ nav{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 
@@ -300,6 +321,25 @@ nav{
     width: 50%;
     flex-direction: column;
   }
+
+  .add-form-opened, .add-form-closed {
+    position: fixed;
+    right: 35px;
+    top: 250px;
+    opacity: inherit;
+    height: 450px;
+    width: 35%;
+    transition: opacity 0.4s, top 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 12px 2px  #b4b4b4;
+    
+
+  }
+
 
 }
 

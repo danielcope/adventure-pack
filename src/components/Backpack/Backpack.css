@@ -156,22 +156,6 @@ button:hover {
     font-size: 0px;
   }
 
-  .add-form-opened, .add-form-closed {
-    position: fixed;
-    right: 25px;
-    top: 15vh;
-    opacity: inherit;
-    height: 400px;
-    width: 35%;
-    -webkit-box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0); 
-    box-shadow: 8px 0px 0px 0px #DCD0C0, 0px 8px 0px 0px #B1938B, -8px 0px 0px 0px #4E4E56, 0px 0px 0px 8px #DA635D, 0px 8px 18px 5px rgba(0,0,0,0);
-    transition: opacity 0.4s, top 0.4s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 15px;
-
-  }
 
   
 

@@ -77,6 +77,7 @@ class Character extends Component {
       <CharNav />
       <AddChar getCharacter={this.getCharacter}/>
       
+      <h5 className='my-characters-header text'>My Characters</h5>
 
       <section className='mapped-char'>
         {mappedCharArr}
