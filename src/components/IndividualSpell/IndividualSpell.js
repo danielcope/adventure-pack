@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 
 import './IndividualSpell.css'
+import IndividualSpellNav from './IndividualSpellNav'
 
 class IndividualSpell extends Component {
   constructor(){
@@ -90,9 +91,7 @@ class IndividualSpell extends Component {
     return (
       <div className='individual-spell-view'>
 
-        <div className='back-nav'>
-          <span className='back text' onClick={() => this.props.history.goBack()}>{'<< Back'}</span>
-        </div>
+      <IndividualSpellNav id={this.state.spell.level} />
 
       <section className='all-spell-info'>
 

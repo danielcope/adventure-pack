@@ -247,57 +247,38 @@ class SpellBook extends Component {
             <section className='mapped'>
               {this.state.mappedZeroSpells}
             </section>
-        </section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 1</span>
           <section className='mapped'>
             {this.state.mappedOneSpells}
           </section>
-        </section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 2</span>
           <section className='mapped'>
             {this.state.mappedTwoSpells}
           </section>
-        </section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 3</span>
           <section className='mapped'>
             {this.state.mappedThreeSpells}
           </section>
-        </section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 4</span>
           <section className='mapped'>
             {this.state.mappedFourSpells}
           </section>
-        </section>
-          <section className='mapped'></section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 5</span>
           <section className='mapped'>
             {this.state.mappedFiveSpells}
           </section>
-        </section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 6</span>
           <section className='mapped'>
             {this.state.mappedSixSpells}
           </section>
-        </section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 7</span>
           <section className='mapped'>
             {this.state.mappedSevenSpells}
           </section>
-        </section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 8</span>
           <section className='mapped'>
             {this.state.mappedEightSpells}
           </section>
-        </section>
-        <section className='mapped-spells-container'>
             <span className='text header'>Level 9</span>
           <section className='mapped'>
             {this.state.mappedNineSpells}

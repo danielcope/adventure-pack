@@ -12,7 +12,7 @@ const SpellBookNav = (props) => {
     <div className='nav spell-book-nav'>
       <span className='ham' onClick={() => flipMenu(!menu)}>&equiv;</span>
 
-      <section className={ menu ? 'char-nav-opened' : 'char-nav-closed'}>
+      <section className={ menu ? 'individual-char-nav-opened' : 'individual-char-nav-closed'}>
           <div>
             <Link className='light-text text' to='/allspells'>All Spells</Link> 
           </div>
