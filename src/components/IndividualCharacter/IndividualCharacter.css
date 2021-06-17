@@ -16,7 +16,6 @@ h1 {
   z-index: 1;
   font-size: 30px;  
   background-color: #DA635D;
-
 }
 
 .individual-char-nav-closed {
@@ -25,7 +24,6 @@ h1 {
   width: 0;
   height: 0;
   opacity: 0;
-  transition: opacity 0s, top 1s;
 }  
 
 .light-text {

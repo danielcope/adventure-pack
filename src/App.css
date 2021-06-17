@@ -6,13 +6,40 @@
   background-color: #DA635D;
 }
 
+.ham-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  right: 30px;
+}
+
 .ham {
   font-size: 36px;
-  height: 80%;
-  width: 12%;
-  padding-top: 10px;
-  color: rgb(255, 242, 200);
+  height: 50%;
+  width: 30px;
+  max-width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }  
+.ham{
+  color: rgb(255, 242, 200);
+}
+
+.ham-line {
+  background-color: rgb(255, 242, 200);
+  height: 2px;
+  transition: transform 1s linear;
+}
+
+.ham:active .top {
+  transform: rotate(45deg);
+}
+
+.mid {
+
+}
 
 .text {
   font-family: 'Roboto', sans-serif;

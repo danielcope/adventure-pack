@@ -34,7 +34,7 @@ class AddItem extends Component {
       <div>
         <div className='add-char-button text'>
           { !this.state.menu ? 
-          <span className='add text' onClick={() => this.flipMenu()}>Add New Item &#43;</span>
+          <span className='add text' onClick={() => this.flipMenu()}>Add &#43;</span>
           : <span className='add text' onClick={() => this.flipMenu()}>Close X</span>
           }
 
