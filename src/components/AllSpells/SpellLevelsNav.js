@@ -4,7 +4,7 @@ import { clearChar } from '../../redux/charReducer'
 import { logout } from '../../redux/userReducer'
 import { connect } from 'react-redux'
  
-const IndividualCharNav = (props) => {
+const SpellLevelsNav = (props) => {
   const [menu,flipMenu] = useState(false)
     return (
       <div className='nav'>
@@ -12,6 +12,7 @@ const IndividualCharNav = (props) => {
 
         <div className={ menu ? 'individual-char-nav-opened' : 'individual-char-nav-closed'}>
           <Link className='light-text text' to='/allcharacters'>All Characters</Link>
+          <Link className='text light-text' to='/allspells'>All Spells</Link>          
           <Link className='light-text text' to='/' onClick={() => {
             props.logout()
             props.clearChar()
@@ -21,4 +22,4 @@ const IndividualCharNav = (props) => {
     )
   }
 
-export default connect(null, { logout, clearChar } ) (IndividualCharNav)
+export default connect(null, { logout, clearChar } ) (SpellLevelsNav)

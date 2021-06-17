@@ -1,10 +1,103 @@
 .spell-view {
   height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .levels-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.level-links {
+  color: grey;
+  font-size: 48px;
+}
+
+.mapped-level-spells-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  box-shadow: 0px 5px 15px 5px #c7c7c7;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.all-mapped-spells-by-level {
+  text-align: center; 
+  width: 100%;
+}
+
+.spell-links {
+  font-size: 36px;
+  text-decoration: none;
+  color: grey
+}
+
+.spell-level-header {
+  padding: 15px;
+  box-shadow: 0px 5px 15px 5px #c7c7c7;
+  margin: 10px 10px 25px 10px;
+  border-radius: 15px;
+}
+
+.back-nav {
+  height: 10vh;
+  background: #DA635D;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(255, 242, 200); 
+  font-size: 20px;
+  padding-left: 10px;
+  box-shadow: 0px 10px 14px 1px  #b4b4b4;
+  margin-bottom: 40px; 
+}
+
+.back {
+  width: 25%;
+}
+
+.back:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+@media (min-width:700px) {
+
+  .all-mapped-spells-by-level {
+    width: 40%;
+  }
+
+  .mapped-level-spells-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .spell-links {
+    font-size: 48px;
+    width: 150px;
+  }
+
+  .levels-section {
+    width: 40%;
+    text-align: center;
+  }
+
+  .levels-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+}
+
+@media (min-width: 1000px) {
+  .levels-container {
+    width: 80%;
+  }
 }
 

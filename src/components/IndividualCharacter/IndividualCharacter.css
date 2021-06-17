@@ -150,7 +150,13 @@ display: flex;
   border: none;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 600px) {
+  .ham {
+    width: 60px;
+  }
+}
+
+@media (min-width: 1300px) {
 
   .ham {
     position: fixed;
