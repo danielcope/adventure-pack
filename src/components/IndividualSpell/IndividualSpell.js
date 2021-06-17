@@ -87,8 +87,6 @@ class IndividualSpell extends Component {
 
   render () {
 
-    console.log(this.state);
-
     return (
       <div className='individual-spell-view'>
 
@@ -96,6 +94,7 @@ class IndividualSpell extends Component {
           <span className='back text' onClick={() => this.props.history.goBack()}>{'<< Back'}</span>
         </div>
 
+      <section className='all-spell-info'>
 
         <div>
           <h2 className='spell-name-bar text'>
@@ -167,7 +166,7 @@ class IndividualSpell extends Component {
             {this.state.spell.material}
           </section>
         : <span></span>
-        }
+      }
 
         {this.state.spell.dc ? 
           <section className='dc-info'>
@@ -175,7 +174,7 @@ class IndividualSpell extends Component {
             </section> 
           </section>
         : <span></span>
-        }
+      }
 
         <section className='spell-desc text'>
           <span className='text bold header'>Spell Description</span>
@@ -195,6 +194,7 @@ class IndividualSpell extends Component {
             {this.state.mappedChar}
           </div>
           
+        </section>
 
         </section>
 

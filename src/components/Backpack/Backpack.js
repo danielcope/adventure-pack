@@ -42,13 +42,13 @@ class Backpack extends Component {
     
   render () {
     return (
-      <div>
+      <section>
         <BackpackNav id={this.props.match.params.id} />
         <AddItem id={this.props.match.params.id} getBackpack={this.getBackpack}/>
         <h1 className='backpack-owner text'>{this.state.charInfo.name}'s Backpack</h1>
 
         <BackpackList getBackpack={this.getBackpack} />
-      </div>
+      </section>
     )
   }
 }

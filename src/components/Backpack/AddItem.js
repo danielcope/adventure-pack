@@ -42,15 +42,15 @@ class AddItem extends Component {
           <section className={ this.state.menu ? 'add-form-opened text' :
         'add-form-closed text'}>
             <section className='add-item-block'>
-              <label>Item Name</label>
+              <label className='header'>Item Name</label>
               <input className='add-item-input text' onChange={e=>this.handleName(e.target.value)} placeholder='add item'/>
             </section>
             <section className='add-item-block'>
-              <label>Item Description</label>
+              <label className='header'>Item Description</label>
               <input onChange={e=>this.handleDesc(e.target.value)} className='desc-input text'/>
             </section>
 
-            <button onClick={() => this.addItem()}>Add Item</button>
+            <button className='add-item-button' onClick={() => this.addItem()}>Add Item</button>
               
           </section>
 

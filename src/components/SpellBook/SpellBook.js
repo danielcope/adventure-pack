@@ -236,50 +236,75 @@ class SpellBook extends Component {
       <section className='spellbook-view'>
         <SpellBookNav id={this.props.match.params.id} />
 
-        <h2>{this.state.charName}'s Spellbook</h2>
+      <section className='all-spellbook-info'>
+        
+
+        <h2 className='spellbook-owner'>{this.state.charName}'s Spellbook</h2>
 
 
         <section className='mapped-spells-container'>
             <span className='text header'>Cantrips</span>
-            {this.state.mappedZeroSpells}
+            <section className='mapped'>
+              {this.state.mappedZeroSpells}
+            </section>
         </section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 1</span>
-          {this.state.mappedOneSpells}
+          <section className='mapped'>
+            {this.state.mappedOneSpells}
+          </section>
         </section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 2</span>
-          {this.state.mappedTwoSpells}
+          <section className='mapped'>
+            {this.state.mappedTwoSpells}
+          </section>
         </section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 3</span>
-          {this.state.mappedThreeSpells}
+          <section className='mapped'>
+            {this.state.mappedThreeSpells}
+          </section>
         </section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 4</span>
-          {this.state.mappedFourSpells}
+          <section className='mapped'>
+            {this.state.mappedFourSpells}
+          </section>
         </section>
+          <section className='mapped'></section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 5</span>
-          {this.state.mappedFiveSpells}
+          <section className='mapped'>
+            {this.state.mappedFiveSpells}
+          </section>
         </section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 6</span>
-          {this.state.mappedSixSpells}
+          <section className='mapped'>
+            {this.state.mappedSixSpells}
+          </section>
         </section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 7</span>
-          {this.state.mappedSevenSpells}
+          <section className='mapped'>
+            {this.state.mappedSevenSpells}
+          </section>
         </section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 8</span>
-          {this.state.mappedEightSpells}
+          <section className='mapped'>
+            {this.state.mappedEightSpells}
+          </section>
         </section>
         <section className='mapped-spells-container'>
             <span className='text header'>Level 9</span>
-          {this.state.mappedNineSpells}
+          <section className='mapped'>
+            {this.state.mappedNineSpells}
+          </section>
         </section>
 
+      </section>
       </section>
     )
   }
