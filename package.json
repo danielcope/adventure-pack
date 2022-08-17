@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "server/server.js",
-  "proxy": "http://localhost:4111",
+  "proxy": "http://localhost:5432",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
@@ -21,7 +21,6 @@
     "jsonwebtoken": "^8.5.1",
     "massive": "^6.8.0",
     "nodemailer": "^6.6.0",
-    "nodemon": "^2.0.7",
     "npm": "^7.11.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

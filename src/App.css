@@ -37,14 +37,6 @@
   transform: rotate(45deg);
 }
 
-.mid {
-
-}
-
 .text {
   font-family: 'Roboto', sans-serif;
-}
-
-@media (min-width: 1023px) {
-  
 }
